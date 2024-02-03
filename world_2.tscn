@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://m40ohppqh5f8"]
+
+[ext_resource type="PackedScene" uid="uid://2oxdgu03lnbk" path="res://addons/character-controller/example/main/player.tscn" id="1_5g40g"]
+[ext_resource type="Material" uid="uid://nkwqeen6ppy2" path="res://Materials/marble_material.tres" id="2_n8kw3"]
+[ext_resource type="Material" uid="uid://cp3din1bxb5gk" path="res://Materials/brick_material.tres" id="3_ok2ot"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ifsgq"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_pabtl"]
+sky_material = SubResource("ProceduralSkyMaterial_ifsgq")
+
+[sub_resource type="Environment" id="Environment_xfgu4"]
+background_mode = 2
+sky = SubResource("Sky_pabtl")
+ambient_light_color = Color(0.952941, 0.913725, 0.670588, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.04
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.952941, 0.913725, 0.670588, 1)
+fog_light_energy = 0.02
+fog_density = 0.05
+
+[node name="World2" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_5g40g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 2
+mouse_sensitivity = 5.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xfgu4")
+
+[node name="Floor" type="Node" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Floor"]
+use_collision = true
+collision_mask = 0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Floor/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.359161, 0, -18.5868)
+use_collision = true
+size = Vector3(9.67859, 1, 56.6335)
+material = ExtResource("2_n8kw3")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Floor/CSGCombiner3D"]
+transform = Transform3D(-3.75882e-08, 0.174098, 0.444724, 1.47148e-08, 0.444724, -0.174098, -0.923461, 0, -2.0876e-08, -16.6423, 5.26699, -18.5431)
+use_collision = true
+size = Vector3(9.67859, 1, 56.6335)
+material = ExtResource("2_n8kw3")
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Walls"]
+use_collision = true
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.359161, 4.49762, -18.5868)
+use_collision = true
+size = Vector3(9.67859, 9.99524, 56.6335)
+material = ExtResource("3_ok2ot")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Walls/CSGCombiner3D"]
+transform = Transform3D(0.736322, 0, 0, 0, 0.807007, 0, 0, 0, 1.01958, 0.359161, 4.23422, -18.5868)
+operation = 2
+use_collision = true
+size = Vector3(9.67859, 9.99524, 56.6335)
+material = ExtResource("3_ok2ot")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Walls/CSGCombiner3D"]
+transform = Transform3D(-0.000969105, 0.378972, 0.925408, 0.000396865, 0.925409, -0.378971, -1, 7.29625e-09, -0.00104722, -15.0109, 9.1114, -18.6889)
+use_collision = true
+size = Vector3(9.67859, 9.99524, 27.3612)
+material = ExtResource("3_ok2ot")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Walls/CSGCombiner3D"]
+transform = Transform3D(-0.000713562, 0.305833, 0.943526, 0.000292217, 0.746811, -0.386391, -0.736322, -1.92355e-11, -0.0010677, -19.9285, 10.8406, -18.6834)
+operation = 2
+use_collision = true
+size = Vector3(9.67859, 9.99524, 43.4103)
+material = ExtResource("3_ok2ot")
