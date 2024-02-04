@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d13511sdb45yq"
-path.s3tc="res://.godot/imported/rock_128x128.png-df06dea4568f329071c6b813c1624ad2.s3tc.ctex"
+uid="uid://br3dmr8bhmgsp"
+path.s3tc="res://.godot/imported/Wood_Crate_001_ambientOcclusion.jpg-8e4011de6179e54b9aeede7689b824de.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/rock_128x128.png"
-dest_files=["res://.godot/imported/rock_128x128.png-df06dea4568f329071c6b813c1624ad2.s3tc.ctex"]
+source_file="res://Textures/crate/Wood_Crate_001_ambientOcclusion.jpg"
+dest_files=["res://.godot/imported/Wood_Crate_001_ambientOcclusion.jpg-8e4011de6179e54b9aeede7689b824de.s3tc.ctex"]
 
 [params]
 

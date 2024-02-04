@@ -4,6 +4,8 @@
 
 [node name="Door" type="CSGCylinder3D"]
 transform = Transform3D(-1.2763e-07, 2.56313, 1.65809e-15, -2.68993, -1.03216e-07, 1.1244, 1.13566, 4.35768e-08, 2.66326, 0, 0, 0)
+use_collision = true
+collision_mask = 0
 radius = 0.547141
 height = 0.219749
 sides = 9

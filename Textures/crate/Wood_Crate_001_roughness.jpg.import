@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btbnts3jpecem"
-path.s3tc="res://.godot/imported/bricks_texture_32x32.png-8e82a31d71e1f68098418206edffe618.s3tc.ctex"
+uid="uid://dpa7yhpdrkb78"
+path.s3tc="res://.godot/imported/Wood_Crate_001_roughness.jpg-9cce19060bc32c7a0d794548c625c1aa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/bricks_texture_32x32.png"
-dest_files=["res://.godot/imported/bricks_texture_32x32.png-8e82a31d71e1f68098418206edffe618.s3tc.ctex"]
+source_file="res://Textures/crate/Wood_Crate_001_roughness.jpg"
+dest_files=["res://.godot/imported/Wood_Crate_001_roughness.jpg-9cce19060bc32c7a0d794548c625c1aa.s3tc.ctex"]
 
 [params]
 

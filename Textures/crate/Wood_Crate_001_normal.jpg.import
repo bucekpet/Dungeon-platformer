@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m75hehchrigk"
-path.s3tc="res://.godot/imported/bricks_128x128.png-7d4e15fbfbae2c88be77fd2421a0fd9e.s3tc.ctex"
+uid="uid://cp5vkgyhax151"
+path.s3tc="res://.godot/imported/Wood_Crate_001_normal.jpg-6004e9057149bec0f3441b0f8a1194aa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/bricks_128x128.png"
-dest_files=["res://.godot/imported/bricks_128x128.png-7d4e15fbfbae2c88be77fd2421a0fd9e.s3tc.ctex"]
+source_file="res://Textures/crate/Wood_Crate_001_normal.jpg"
+dest_files=["res://.godot/imported/Wood_Crate_001_normal.jpg-6004e9057149bec0f3441b0f8a1194aa.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://Textures/crate/Wood_Crate_001_normal.jpg"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

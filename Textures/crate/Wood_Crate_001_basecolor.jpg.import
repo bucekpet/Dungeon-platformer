@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddbsg5e0d6ma8"
-path.s3tc="res://.godot/imported/bricks_texture_32x32_n.png-626ddc9cccfed1a51c2c8f084c881add.s3tc.ctex"
+uid="uid://ba7ccddyljwvm"
+path.s3tc="res://.godot/imported/Wood_Crate_001_basecolor.jpg-34cda12b6d543c84ebe4b70992d09e16.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/bricks_texture_32x32_n.png"
-dest_files=["res://.godot/imported/bricks_texture_32x32_n.png-626ddc9cccfed1a51c2c8f084c881add.s3tc.ctex"]
+source_file="res://Textures/crate/Wood_Crate_001_basecolor.jpg"
+dest_files=["res://.godot/imported/Wood_Crate_001_basecolor.jpg-34cda12b6d543c84ebe4b70992d09e16.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://bricks_texture_32x32_n.png"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

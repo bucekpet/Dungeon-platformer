@@ -7,6 +7,8 @@
 
 [resource]
 albedo_texture = ExtResource("1_vrm01")
+metallic_specular = 0.0
+roughness_texture = ExtResource("3_wpror")
 normal_enabled = true
 normal_texture = ExtResource("4_q4tcw")
 ao_enabled = true

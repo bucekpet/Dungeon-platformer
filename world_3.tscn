@@ -1,16 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://rniw2avrs0w2"]
+[gd_scene load_steps=7 format=3 uid="uid://rniw2avrs0w2"]
 
 [ext_resource type="PackedScene" uid="uid://2oxdgu03lnbk" path="res://addons/character-controller/example/main/player.tscn" id="1_dms3m"]
 [ext_resource type="Script" path="res://World.gd" id="1_eca6b"]
 [ext_resource type="PackedScene" uid="uid://lra67ejmcymt" path="res://Modules/room.tscn" id="2_8kfwn"]
 [ext_resource type="PackedScene" uid="uid://y1q5ogxvsjcb" path="res://Environments/world_environment.tscn" id="4_8miqv"]
 [ext_resource type="PackedScene" uid="uid://cpnnygnt0rj4l" path="res://Modules/door.tscn" id="5_helgc"]
+[ext_resource type="PackedScene" uid="uid://bul5eq425kpxw" path="res://Objects/Crate.tscn" id="6_pu3go"]
 
 [node name="World_3" type="Node3D"]
 script = ExtResource("1_eca6b")
 
 [node name="Player" parent="." instance=ExtResource("1_dms3m")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0)
+speed = 5
 
 [node name="Room" parent="." instance=ExtResource("2_8kfwn")]
 
@@ -18,3 +20,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 
 
 [node name="Door" parent="." instance=ExtResource("5_helgc")]
 transform = Transform3D(-1.2763e-07, 2.39357, 1.65809e-15, -2.68993, -9.63878e-08, 1.1244, 1.13566, 4.0694e-08, 2.66326, -8.23388, 0.912042, -0.315532)
+
+[node name="Crate" parent="." instance=ExtResource("6_pu3go")]
+transform = Transform3D(0.978122, 0, -0.208031, 0, 1, 0, 0.208031, 0, 0.978122, 1.13313, 1, -2.2)
+
+[node name="Crate2" parent="." instance=ExtResource("6_pu3go")]
+transform = Transform3D(0.98068, 0, 0.195621, 0, 1, 0, -0.195621, 0, 0.98068, 1.58505, 1, -0.94655)
+
+[node name="Crate3" parent="." instance=ExtResource("6_pu3go")]
+transform = Transform3D(0.993264, 0, -0.115873, 0, 1, 0, 0.115873, 0, 0.993264, 1.58505, 2.0095, -1.71346)
