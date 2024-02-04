@@ -1,0 +1,25 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://db3emt22sot2i"]
+
+[ext_resource type="Texture2D" uid="uid://qstv3ixathrm" path="res://Textures/rock/Rock051_1K-JPG_Color.jpg" id="1_bvm4m"]
+[ext_resource type="Texture2D" uid="uid://cdsgfbtbnufea" path="res://Textures/rock/Rock051_1K-JPG_AmbientOcclusion.jpg" id="2_wik7j"]
+[ext_resource type="Texture2D" uid="uid://dsprws7dric1m" path="res://Textures/rock/Rock051_1K-JPG_Displacement.jpg" id="3_nrloj"]
+[ext_resource type="Texture2D" uid="uid://b6oyq5osiwc5g" path="res://Textures/rock/Rock051_1K-JPG_Metalness.jpg" id="4_1hyr2"]
+[ext_resource type="Texture2D" uid="uid://bto2f7b3ybnpj" path="res://Textures/rock/Rock051_1K-JPG_NormalDX.jpg" id="5_jo0sb"]
+
+[resource]
+albedo_texture = ExtResource("1_bvm4m")
+metallic = 1.0
+metallic_texture = ExtResource("4_1hyr2")
+emission_energy_multiplier = 0.05
+emission_texture = ExtResource("3_nrloj")
+normal_enabled = true
+normal_texture = ExtResource("5_jo0sb")
+rim = 0.3
+clearcoat = 0.65
+clearcoat_roughness = 0.36
+anisotropy = -0.14
+ao_enabled = true
+ao_texture = ExtResource("2_wik7j")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_nrloj")
+uv1_triplanar = true

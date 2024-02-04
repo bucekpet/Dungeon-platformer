@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://lra67ejmcymt"]
+
+[ext_resource type="Material" uid="uid://nkwqeen6ppy2" path="res://Materials/marble_material.tres" id="1_6robd"]
+[ext_resource type="Material" uid="uid://cexyqw8bhidji" path="res://Materials/ground_material.tres" id="1_qf24p"]
+[ext_resource type="Material" uid="uid://er3pusc1ysyt" path="res://Materials/bricks_material.tres" id="7_ohx7u"]
+
+[node name="Room" type="Node3D"]
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(0.828228, 0, 0, 0, 0.819883, 0, 0, 0, 0.626671, -1.56678, -0.130729, -0.000203117)
+use_collision = true
+size = Vector3(17, 1, 17)
+material = ExtResource("1_qf24p")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="Walls" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.828228, 0, 0, 0, 0.956299, 0, 0, 0, 0.626671, -1.56678, 2.97508, -0.000203117)
+material_override = ExtResource("1_6robd")
+use_collision = true
+size = Vector3(17, 5.52539, 17)
+material = ExtResource("7_ohx7u")
+
+[node name="Walls sub" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.745405, 0, 0, 0, 0.765039, 0, 0, 0, 0.564004, -1.55883, 2.4013, -0.00122598)
+operation = 2
+use_collision = true
+size = Vector3(17, 5.52539, 17)
+material = ExtResource("7_ohx7u")
+
+[node name="Door hole" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-1.2763e-07, 2.56313, 1.65809e-15, -2.68993, -1.03216e-07, 1.1244, 1.13566, 4.35768e-08, 2.66326, -8, 0.840212, -0.324229)
+operation = 2
+radius = 0.547141
+height = 0.63175
+sides = 9
+material = ExtResource("7_ohx7u")

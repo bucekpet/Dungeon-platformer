@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://er3pusc1ysyt"]
+
+[ext_resource type="Texture2D" uid="uid://f40gec02scd6" path="res://Textures/bricks/Bricks076B_1K-JPG_Color.jpg" id="1_j2gct"]
+[ext_resource type="Texture2D" uid="uid://cd17w6n0y2fdo" path="res://Textures/bricks/Bricks076B_1K-JPG_Roughness.jpg" id="2_s37ip"]
+[ext_resource type="Texture2D" uid="uid://84rr18a3is27" path="res://Textures/bricks/Bricks076B_1K-JPG_NormalGL.jpg" id="3_a21pq"]
+
+[resource]
+albedo_texture = ExtResource("1_j2gct")
+normal_enabled = true
+normal_texture = ExtResource("3_a21pq")
+heightmap_enabled = true
+heightmap_scale = 16.0
+heightmap_texture = ExtResource("2_s37ip")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
