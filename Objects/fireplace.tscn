@@ -1,0 +1,57 @@
+[gd_scene load_steps=12 format=3 uid="uid://cylp5llh81ku"]
+
+[ext_resource type="PackedScene" uid="uid://r7kkgpk3k0l8" path="res://Models/fireplace.glb" id="1_3xmsd"]
+[ext_resource type="Texture2D" uid="uid://c2qyq7sv4f845" path="res://Textures/wood/Wood062_1K-JPG_Color.jpg" id="2_6tcfx"]
+[ext_resource type="Texture2D" uid="uid://3178rlwpscff" path="res://Textures/wood/Wood062_1K-JPG_AmbientOcclusion.jpg" id="3_ucws0"]
+[ext_resource type="Texture2D" uid="uid://if8sydn1e4if" path="res://Textures/wood/Wood062_1K-JPG_Displacement.jpg" id="4_p7iwt"]
+[ext_resource type="Texture2D" uid="uid://4reyrddsmt77" path="res://Textures/wood/Wood062_1K-JPG_NormalGL.jpg" id="5_k4tow"]
+[ext_resource type="Texture2D" uid="uid://uckt2ov234oy" path="res://Textures/wood/Wood062_1K-JPG_Roughness.jpg" id="6_q4piy"]
+[ext_resource type="Texture2D" uid="uid://d12ui64g11n2c" path="res://Textures/particles/fire_02.png" id="7_egwga"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_43j3m"]
+albedo_color = Color(0.321569, 0.384314, 0.462745, 0.623529)
+albedo_texture = ExtResource("2_6tcfx")
+metallic_specular = 0.0
+roughness_texture = ExtResource("6_q4piy")
+normal_enabled = true
+normal_texture = ExtResource("5_k4tow")
+ao_enabled = true
+ao_texture = ExtResource("3_ucws0")
+heightmap_enabled = true
+heightmap_texture = ExtResource("4_p7iwt")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bhjyo"]
+angle_min = -50.0
+angle_max = 50.0
+direction = Vector3(0, 1, 0)
+spread = 5.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jv8v2"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("7_egwga")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_20thr"]
+material = SubResource("StandardMaterial3D_jv8v2")
+
+[node name="fireplace" instance=ExtResource("1_3xmsd")]
+
+[node name="Cylinder" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00058952)
+surface_material_override/0 = SubResource("StandardMaterial3D_43j3m")
+
+[node name="Flames" type="GPUParticles3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.274413, 0)
+process_material = SubResource("ParticleProcessMaterial_bhjyo")
+draw_pass_1 = SubResource("QuadMesh_20thr")
