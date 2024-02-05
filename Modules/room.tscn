@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://lra67ejmcymt"]
+[gd_scene load_steps=3 format=3 uid="uid://lra67ejmcymt"]
 
-[ext_resource type="Material" uid="uid://nkwqeen6ppy2" path="res://Materials/marble_material.tres" id="1_6robd"]
 [ext_resource type="Material" uid="uid://cexyqw8bhidji" path="res://Materials/ground_material.tres" id="1_qf24p"]
 [ext_resource type="Material" uid="uid://er3pusc1ysyt" path="res://Materials/bricks_material.tres" id="7_ohx7u"]
 
@@ -17,7 +16,6 @@ use_collision = true
 
 [node name="Walls" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-material_override = ExtResource("1_6robd")
 use_collision = true
 size = Vector3(12, 6, 12)
 material = ExtResource("7_ohx7u")

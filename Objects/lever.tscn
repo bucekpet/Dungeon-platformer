@@ -1,0 +1,97 @@
+[gd_scene load_steps=14 format=3 uid="uid://bqjol7rmd7le4"]
+
+[ext_resource type="Script" path="res://Scrpits/interactable.gd" id="1_047a5"]
+[ext_resource type="Material" uid="uid://b3fonsgvwfm37" path="res://Materials/wood_material.tres" id="1_giptv"]
+[ext_resource type="Texture2D" uid="uid://c2qyq7sv4f845" path="res://Textures/wood/Wood062_1K-JPG_Color.jpg" id="1_n1kwp"]
+[ext_resource type="Texture2D" uid="uid://3178rlwpscff" path="res://Textures/wood/Wood062_1K-JPG_AmbientOcclusion.jpg" id="2_hoj0k"]
+[ext_resource type="Texture2D" uid="uid://if8sydn1e4if" path="res://Textures/wood/Wood062_1K-JPG_Displacement.jpg" id="3_2sy3t"]
+[ext_resource type="Texture2D" uid="uid://4reyrddsmt77" path="res://Textures/wood/Wood062_1K-JPG_NormalGL.jpg" id="4_6kq1a"]
+[ext_resource type="Texture2D" uid="uid://uckt2ov234oy" path="res://Textures/wood/Wood062_1K-JPG_Roughness.jpg" id="5_0g48d"]
+[ext_resource type="Script" path="res://Scrpits/lever_animation.gd" id="8_vh4qe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0pucj"]
+albedo_texture = ExtResource("1_n1kwp")
+metallic_specular = 0.0
+roughness_texture = ExtResource("5_0g48d")
+normal_enabled = true
+normal_texture = ExtResource("4_6kq1a")
+ao_enabled = true
+ao_texture = ExtResource("2_hoj0k")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_2sy3t")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="Animation" id="Animation_jo81a"]
+resource_name = "Turn on"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGCombiner3D/Level pivot:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.792414, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ucyfh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGCombiner3D/Level pivot:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qkse6"]
+_data = {
+"Flip": SubResource("Animation_jo81a"),
+"RESET": SubResource("Animation_ucyfh")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mymf4"]
+size = Vector3(0.303711, 0.644592, 0.690552)
+
+[node name="Lever" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0309972, 0)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_047a5")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="Base" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00103498, 0.0847468, -0.000430346)
+size = Vector3(0.3, 0.1, 0.7)
+material = ExtResource("1_giptv")
+
+[node name="Level pivot" type="Node3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13125, 0)
+
+[node name="Lever" type="CSGCylinder3D" parent="CSGCombiner3D/Level pivot"]
+transform = Transform3D(1, 0, 0, 0, 0.921863, 0.387516, 0, -0.387516, 0.921863, 0, 0.254358, -0.120359)
+radius = 0.035
+height = 0.617
+material = SubResource("StandardMaterial3D_0pucj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qkse6")
+}
+script = ExtResource("8_vh4qe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00244141, 0.356354, -0.00482178)
+shape = SubResource("BoxShape3D_mymf4")
+
+[connection signal="interacted" from="." to="AnimationPlayer" method="_on_lever_interacted"]
