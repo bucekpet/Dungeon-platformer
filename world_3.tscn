@@ -38,6 +38,15 @@ transform = Transform3D(0.930168, 0, 0.367135, 0, 1, 0, -0.367135, 0, 0.930168, 
 [node name="Crate3" parent="Objects" instance=ExtResource("6_pu3go")]
 transform = Transform3D(0.998022, 0, 0.0628605, 0, 1, 0, -0.0628605, 0, 0.998022, 4.24711, 1.57103, -4.32845)
 
+[node name="Crate4" parent="Objects" instance=ExtResource("6_pu3go")]
+transform = Transform3D(0.46597, 0, -0.8848, 0, 1, 0, 0.8848, 0, 0.46597, 4.36848, 0.561533, 3.25801)
+
+[node name="Crate5" parent="Objects" instance=ExtResource("6_pu3go")]
+transform = Transform3D(0.777816, 0, -0.628493, 0, 1, 0, 0.628493, 0, 0.777816, 3.69436, 0.561533, 4.40732)
+
+[node name="Crate6" parent="Objects" instance=ExtResource("6_pu3go")]
+transform = Transform3D(0.69491, 0, -0.719097, 0, 1, 0, 0.719097, 0, 0.69491, 4.19836, 1.57103, 3.92146)
+
 [node name="Lever" parent="Objects" instance=ExtResource("8_gwlkn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.16977, 0, -4.63801)
 

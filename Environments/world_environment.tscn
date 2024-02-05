@@ -18,7 +18,7 @@ glow_enabled = true
 fog_enabled = true
 fog_light_color = Color(0.952941, 0.913725, 0.670588, 1)
 fog_light_energy = 0.02
-fog_density = 0.05
+fog_density = 0.075
 
 [node name="WorldEnvironment" type="WorldEnvironment"]
 environment = SubResource("Environment_xfgu4")
