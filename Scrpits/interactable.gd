@@ -12,4 +12,3 @@ func interact(body):
 		emit_signal('interacted', body)
 		if one_way:
 			active = false
-

@@ -4,3 +4,7 @@ extends CSGCylinder3D
 
 func _on_lever_interacted(body: Variant) -> void:
 	animation_player.play('Open')
+
+
+func _on_lever_2_interacted(body: Variant) -> void:
+	animation_player.play('Open')
