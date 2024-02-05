@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://rniw2avrs0w2"]
+[gd_scene load_steps=10 format=3 uid="uid://rniw2avrs0w2"]
 
 [ext_resource type="PackedScene" uid="uid://2oxdgu03lnbk" path="res://addons/character-controller/example/main/player.tscn" id="1_dms3m"]
 [ext_resource type="Script" path="res://Scrpits/World.gd" id="1_eca6b"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bul5eq425kpxw" path="res://Objects/Crate.tscn" id="6_pu3go"]
 [ext_resource type="PackedScene" uid="uid://cew6o18i1dc" path="res://Modules/hallway.tscn" id="7_q72hy"]
 [ext_resource type="PackedScene" uid="uid://bqjol7rmd7le4" path="res://Objects/lever.tscn" id="8_gwlkn"]
+[ext_resource type="PackedScene" uid="uid://cronsi8peyt4n" path="res://Objects/spikes.tscn" id="9_o06ay"]
 
 [node name="World_3" type="Node3D"]
 script = ExtResource("1_eca6b")
@@ -15,7 +16,7 @@ script = ExtResource("1_eca6b")
 [node name="WorldEnvironment" parent="." instance=ExtResource("4_8miqv")]
 
 [node name="Player" parent="." instance=ExtResource("1_dms3m")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.49157, 1, 0)
 collision_layer = 2
 speed = 6
 
@@ -55,5 +56,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.90829, 1.40617, -0.290485)
 
 [node name="Door" parent="Objects/Door pivot" instance=ExtResource("5_helgc")]
 transform = Transform3D(-1.2763e-07, 2.56313, 1.65809e-15, -2.68993, -1.03216e-07, 1.1244, 1.13566, 4.35768e-08, 2.66326, 0, 0, 0)
+
+[node name="Spikes" type="Node" parent="Objects"]
+
+[node name="Spikes pivot" type="Node3D" parent="Objects/Spikes"]
+transform = Transform3D(0.434067, 0, 0, 0, 0.434067, 0, 0, 0, 0.434067, -12.9796, 0.0227234, -0.562072)
+
+[node name="spikes" parent="Objects/Spikes/Spikes pivot" instance=ExtResource("9_o06ay")]
+
+[node name="Spikes pivot2" type="Node3D" parent="Objects/Spikes"]
+transform = Transform3D(0.434067, 0, 0, 0, 0.434067, 0, 0, 0, 0.434067, -12.9796, 0.0227234, 1.90302)
+
+[node name="spikes" parent="Objects/Spikes/Spikes pivot2" instance=ExtResource("9_o06ay")]
+
+[node name="Spikes pivot3" type="Node3D" parent="Objects/Spikes"]
+transform = Transform3D(0.434067, 0, 0, 0, 0.434067, 0, 0, 0, 0.434067, -12.9796, 0.0227234, -3.33507)
+
+[node name="spikes" parent="Objects/Spikes/Spikes pivot3" instance=ExtResource("9_o06ay")]
+
+[node name="Spikes pivot4" type="Node3D" parent="Objects/Spikes"]
+transform = Transform3D(0.434067, 0, 0, 0, 0.434067, 0, 0, 0, 0.434067, -12.9796, 0.0227234, -6.12678)
+
+[node name="spikes" parent="Objects/Spikes/Spikes pivot4" instance=ExtResource("9_o06ay")]
+
+[node name="Spikes pivot5" type="Node3D" parent="Objects/Spikes"]
+transform = Transform3D(0.434067, 0, 0, 0, 0.434067, 0, 0, 0, 0.434067, -12.9796, 0.0227234, 4.85157)
+
+[node name="spikes" parent="Objects/Spikes/Spikes pivot5" instance=ExtResource("9_o06ay")]
 
 [connection signal="interacted" from="Objects/Lever" to="Objects/Door pivot/Door" method="_on_lever_interacted"]
