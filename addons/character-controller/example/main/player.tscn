@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://2oxdgu03lnbk"]
+[gd_scene load_steps=8 format=3 uid="uid://2oxdgu03lnbk"]
 
 [ext_resource type="PackedScene" uid="uid://8oy3xm2sff8" path="res://addons/character-controller/fps/fps_controller_3d.tscn" id="1_fbpun"]
 [ext_resource type="Script" path="res://addons/character-controller/example/main/player.gd" id="2_8r0nc"]
 [ext_resource type="Environment" uid="uid://b3cn01u84faiy" path="res://addons/character-controller/example/main/underwater.tres" id="3_dxksd"]
-[ext_resource type="Script" path="res://Scrpits/Interact raycast.gd" id="4_bkka8"]
+[ext_resource type="Script" path="res://Scrpits/interact_raycast.gd" id="4_bkka8"]
 [ext_resource type="PackedScene" path="res://addons/character-controller/example/main/audios/player_audios.tscn" id="4_ux8kv"]
 [ext_resource type="Texture2D" uid="uid://dw8tv076ehjtk" path="res://Textures/crosshair001.png" id="6_51ges"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fn1rj"]
 
 [node name="Player" instance=ExtResource("1_fbpun")]
 script = ExtResource("2_8r0nc")
@@ -21,7 +23,7 @@ underwater_env = ExtResource("3_dxksd")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head" index="2"]
 light_color = Color(0.952941, 0.913725, 0.670588, 1)
-light_energy = 1.56
+light_energy = 3.0
 spot_range = 9.72274
 
 [node name="Interact raycast" type="RayCast3D" parent="Head" index="3"]
@@ -46,3 +48,12 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("6_51ges")
+
+[node name="Hurtbox" type="Area3D" parent="." index="11"]
+collision_layer = 2
+collision_mask = 8
+
+[node name="Collision" type="CollisionShape3D" parent="Hurtbox" index="0"]
+shape = SubResource("CapsuleShape3D_fn1rj")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

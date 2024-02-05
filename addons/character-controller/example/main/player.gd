@@ -63,3 +63,13 @@ func _on_controller_emerged():
 
 func _on_controller_subemerged():
 	camera.environment = underwater_env
+
+
+
+
+func _on_hurtbox_body_entered(body: Node3D) -> void:
+	call_deferred('die')
+
+
+func die() -> void:
+	get_tree().reload_current_scene()

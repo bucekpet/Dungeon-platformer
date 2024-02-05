@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://cronsi8peyt4n"]
+[gd_scene load_steps=21 format=3 uid="uid://cronsi8peyt4n"]
 
+[ext_resource type="Script" path="res://Objects/spikes.gd" id="1_rkt3u"]
 [ext_resource type="Texture2D" uid="uid://caixipgyejabk" path="res://Textures/ground/Ground067_1K-JPG_Color.jpg" id="2_0vitm"]
 [ext_resource type="Texture2D" uid="uid://dktcvqtnnqh67" path="res://Textures/ground/Ground067_1K-JPG_AmbientOcclusion.jpg" id="3_f20yo"]
 [ext_resource type="Texture2D" uid="uid://sqdjscwdic4f" path="res://Textures/ground/Ground067_1K-JPG_Roughness.jpg" id="4_6g1ei"]
@@ -127,13 +128,49 @@ tracks/0/keys = {
 "values": [Vector3(0, -4.5464, 3)]
 }
 
+[sub_resource type="Animation" id="Animation_g7j6x"]
+resource_name = "Pull up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spikes:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -4.5464, 3), Vector3(0, 0, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_n81jv"]
+resource_name = "Down"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spikes:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 3), Vector3(0, -4.546, 3)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j7og7"]
 _data = {
 "Active": SubResource("Animation_qsma2"),
-"RESET": SubResource("Animation_dr36n")
+"Down": SubResource("Animation_n81jv"),
+"RESET": SubResource("Animation_dr36n"),
+"Up": SubResource("Animation_g7j6x")
 }
 
 [node name="spikes" type="Node3D"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+script = ExtResource("1_rkt3u")
 
 [node name="Spike-bases" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_lpciu")
@@ -163,4 +200,16 @@ shape = SubResource("ConcavePolygonShape3D_t774m")
 libraries = {
 "": SubResource("AnimationLibrary_j7og7")
 }
-autoplay = "Active"
+
+[node name="Delay" type="Timer" parent="."]
+one_shot = true
+
+[node name="Up-time" type="Timer" parent="."]
+one_shot = true
+
+[node name="Down-time" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Delay" to="." method="_on_delay_timeout"]
+[connection signal="timeout" from="Up-time" to="." method="_on_uptime_timeout"]
+[connection signal="timeout" from="Down-time" to="." method="_on_downtime_timeout"]
