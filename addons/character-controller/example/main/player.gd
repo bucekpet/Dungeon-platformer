@@ -72,4 +72,4 @@ func _on_hurtbox_body_entered(body: Node3D) -> void:
 
 
 func die() -> void:
-	get_tree().reload_current_scene()
+	position = Checkpoints.checkpoint

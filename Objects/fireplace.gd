@@ -5,4 +5,4 @@ extends Interactable
 
 func _on_interacted(body: Variant) -> void:
 	animation_player.play('Active')
-
+	Checkpoints.update_checkpoint(global_position)
