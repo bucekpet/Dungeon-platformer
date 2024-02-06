@@ -83,30 +83,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7294, 0.0227234, -0.56207
 
 [node name="spikes" parent="Objects/Spikes/Row 1/Spikes pivot" instance=ExtResource("9_o06ay")]
 down_time = 2.0
+speed_scale = 2.0
 
 [node name="Spikes pivot2" type="Node3D" parent="Objects/Spikes/Row 1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7294, 0.0227234, -3.13589)
 
 [node name="spikes" parent="Objects/Spikes/Row 1/Spikes pivot2" instance=ExtResource("9_o06ay")]
 down_time = 2.0
+speed_scale = 2.0
 
 [node name="Spikes pivot3" type="Node3D" parent="Objects/Spikes/Row 1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7294, 0.0227234, -5.9025)
 
 [node name="spikes" parent="Objects/Spikes/Row 1/Spikes pivot3" instance=ExtResource("9_o06ay")]
 down_time = 2.0
+speed_scale = 2.0
 
 [node name="Spikes pivot4" type="Node3D" parent="Objects/Spikes/Row 1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7294, 0.0227234, 4.79243)
 
 [node name="spikes" parent="Objects/Spikes/Row 1/Spikes pivot4" instance=ExtResource("9_o06ay")]
 down_time = 2.0
+speed_scale = 2.0
 
 [node name="Spikes pivot5" type="Node3D" parent="Objects/Spikes/Row 1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7294, 0.0227234, 2.13707)
 
 [node name="spikes" parent="Objects/Spikes/Row 1/Spikes pivot5" instance=ExtResource("9_o06ay")]
 down_time = 2.0
+speed_scale = 2.0
 
 [node name="Row 2" type="Node3D" parent="Objects/Spikes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65607, 0, 0)
@@ -117,6 +122,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2856, 0.0227234, -0.56207
 [node name="spikes" parent="Objects/Spikes/Row 2/Spikes pivot6" instance=ExtResource("9_o06ay")]
 delay = 1.0
 down_time = 2.0
+speed_scale = 2.0
 
 [node name="Spikes pivot7" type="Node3D" parent="Objects/Spikes/Row 2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2856, 0.0227234, -3.13589)
@@ -124,6 +130,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2856, 0.0227234, -3.13589
 [node name="spikes" parent="Objects/Spikes/Row 2/Spikes pivot7" instance=ExtResource("9_o06ay")]
 delay = 1.0
 down_time = 2.0
+speed_scale = 2.0
 
 [node name="Spikes pivot8" type="Node3D" parent="Objects/Spikes/Row 2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2856, 0.0227234, -5.9025)
@@ -131,6 +138,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2856, 0.0227234, -5.9025)
 [node name="spikes" parent="Objects/Spikes/Row 2/Spikes pivot8" instance=ExtResource("9_o06ay")]
 delay = 1.0
 down_time = 2.0
+speed_scale = 2.0
 
 [node name="Spikes pivot9" type="Node3D" parent="Objects/Spikes/Row 2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2856, 0.0227234, 4.79243)
@@ -138,6 +146,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2856, 0.0227234, 4.79243)
 [node name="spikes" parent="Objects/Spikes/Row 2/Spikes pivot9" instance=ExtResource("9_o06ay")]
 delay = 1.0
 down_time = 2.0
+speed_scale = 2.0
 
 [node name="Spikes pivot10" type="Node3D" parent="Objects/Spikes/Row 2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2856, 0.0227234, 2.13707)
@@ -145,6 +154,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2856, 0.0227234, 2.13707)
 [node name="spikes" parent="Objects/Spikes/Row 2/Spikes pivot10" instance=ExtResource("9_o06ay")]
 delay = 1.0
 down_time = 2.0
+speed_scale = 2.0
 
 [node name="Row 3" type="Node3D" parent="Objects/Spikes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65607, 0, 0)
@@ -155,6 +165,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8061, 0.0227234, -0.56207
 [node name="spikes" parent="Objects/Spikes/Row 3/Spikes pivot11" instance=ExtResource("9_o06ay")]
 delay = 2.0
 down_time = 2.0
+speed_scale = 2.0
 
 [node name="Spikes pivot12" type="Node3D" parent="Objects/Spikes/Row 3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8061, 0.0227234, -3.13589)
@@ -162,6 +173,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8061, 0.0227234, -3.13589
 [node name="spikes" parent="Objects/Spikes/Row 3/Spikes pivot12" instance=ExtResource("9_o06ay")]
 delay = 2.0
 down_time = 2.0
+speed_scale = 2.0
 
 [node name="Spikes pivot13" type="Node3D" parent="Objects/Spikes/Row 3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8061, 0.0227234, -5.9025)
@@ -169,6 +181,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8061, 0.0227234, -5.9025)
 [node name="spikes" parent="Objects/Spikes/Row 3/Spikes pivot13" instance=ExtResource("9_o06ay")]
 delay = 2.0
 down_time = 2.0
+speed_scale = 2.0
 
 [node name="Spikes pivot14" type="Node3D" parent="Objects/Spikes/Row 3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8061, 0.0227234, 4.79243)
@@ -176,6 +189,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8061, 0.0227234, 4.79243)
 [node name="spikes" parent="Objects/Spikes/Row 3/Spikes pivot14" instance=ExtResource("9_o06ay")]
 delay = 2.0
 down_time = 2.0
+speed_scale = 2.0
 
 [node name="Spikes pivot15" type="Node3D" parent="Objects/Spikes/Row 3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8061, 0.0227234, 2.13707)
@@ -183,6 +197,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8061, 0.0227234, 2.13707)
 [node name="spikes" parent="Objects/Spikes/Row 3/Spikes pivot15" instance=ExtResource("9_o06ay")]
 delay = 2.0
 down_time = 2.0
+speed_scale = 2.0
 
 [node name="fireplace" parent="Objects" instance=ExtResource("10_o0aix")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0381, 0, 0)
