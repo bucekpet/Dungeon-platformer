@@ -21,7 +21,7 @@ script = ExtResource("1_e5b6p")
 [node name="WorldEnvironment" parent="." instance=ExtResource("2_0ptni")]
 
 [node name="Player" parent="." instance=ExtResource("3_fympx")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.17595, 1, 0.131126)
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -27.982, 1, 2.78247)
 collision_layer = 2
 speed = 4
 
@@ -174,7 +174,7 @@ transform = Transform3D(-0.719097, 0, -0.69491, 0, 1, 0, 0.69491, 0, -0.719097, 
 [node name="Room 4" type="Node" parent="."]
 
 [node name="Hallway2" parent="Room 4" instance=ExtResource("5_q0wsy")]
-transform = Transform3D(1, 0, -5.2821e-15, 0, 1, 0, 1.06581e-14, 0, 0.936111, -27.033, 0, -17.306)
+transform = Transform3D(1, 0, -6.14245e-15, 0, 1, 0, 1.06581e-14, 0, 1.08858, -27.033, 0, -19.2631)
 
 [node name="Objects" type="Node3D" parent="Room 4"]
 
@@ -184,8 +184,21 @@ up_time = 0.5
 down_time = 2.0
 speed_scale = 2.0
 
+[node name="spikes9" parent="Room 4/Objects" instance=ExtResource("14_nouua")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.433255, 0, -0.35, 0, -1.5299e-08, -27.1336, 0, -27.066)
+up_time = 0.5
+down_time = 2.0
+speed_scale = 2.0
+
 [node name="spikes3" parent="Room 4/Objects" instance=ExtResource("14_nouua")]
 transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.433255, 0, -0.35, 0, -1.5299e-08, -27.1336, 0, -14.116)
+delay = 0.5
+up_time = 0.5
+down_time = 2.0
+speed_scale = 2.0
+
+[node name="spikes8" parent="Room 4/Objects" instance=ExtResource("14_nouua")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.433255, 0, -0.35, 0, -1.5299e-08, -27.1336, 0, -24.966)
 delay = 0.5
 up_time = 0.5
 down_time = 2.0
@@ -198,12 +211,44 @@ up_time = 0.5
 down_time = 2.0
 speed_scale = 2.0
 
+[node name="spikes7" parent="Room 4/Objects" instance=ExtResource("14_nouua")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.433255, 0, -0.35, 0, -1.5299e-08, -27.1336, 0, -22.866)
+delay = 1.0
+up_time = 0.5
+down_time = 2.0
+speed_scale = 2.0
+
 [node name="spikes5" parent="Room 4/Objects" instance=ExtResource("14_nouua")]
 transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.433255, 0, -0.35, 0, -1.5299e-08, -27.1336, 0, -9.916)
 delay = 1.5
 up_time = 0.5
 down_time = 2.0
 speed_scale = 2.0
+
+[node name="spikes6" parent="Room 4/Objects" instance=ExtResource("14_nouua")]
+transform = Transform3D(-1.5299e-08, 0, 0.35, 0, 0.433255, 0, -0.35, 0, -1.5299e-08, -27.1336, 0, -20.8282)
+delay = 1.5
+up_time = 0.5
+down_time = 2.0
+speed_scale = 2.0
+
+[node name="Torches" type="Node3D" parent="Room 4/Objects"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -27.0187, 0, -11.2409)
+
+[node name="torch3" parent="Room 4/Objects/Torches" instance=ExtResource("12_a01gh")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -1.03119, 2.48552, -5.6544)
+
+[node name="torch4" parent="Room 4/Objects/Torches" instance=ExtResource("12_a01gh")]
+transform = Transform3D(6.55671e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 6.55671e-08, -1.03119, 2.48552, 5.6753)
+
+[node name="Torches2" type="Node3D" parent="Room 4/Objects"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -27.0187, 0, -23.7409)
+
+[node name="torch3" parent="Room 4/Objects/Torches2" instance=ExtResource("12_a01gh")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -1.03119, 2.48552, -5.6544)
+
+[node name="torch4" parent="Room 4/Objects/Torches2" instance=ExtResource("12_a01gh")]
+transform = Transform3D(6.55671e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 6.55671e-08, -1.03119, 2.48552, 5.6753)
 
 [connection signal="interacted" from="Room 1/Objects/fireplace" to="Room 1/Objects/fireplace" method="_on_interacted"]
 [connection signal="interacted" from="Room 1/Objects/Lever" to="Room 1/Objects/Door pivot/Door" method="_on_lever_interacted"]
