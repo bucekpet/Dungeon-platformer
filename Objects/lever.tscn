@@ -60,7 +60,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mymf4"]
-size = Vector3(0.303711, 0.644592, 0.690552)
+size = Vector3(0.644875, 0.815811, 0.88858)
 
 [node name="Lever" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0309972, 0)
@@ -91,7 +91,7 @@ libraries = {
 script = ExtResource("8_vh4qe")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00244141, 0.356354, -0.00482178)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013668, 0.433205, 0.0210114)
 shape = SubResource("BoxShape3D_mymf4")
 
 [connection signal="interacted" from="." to="AnimationPlayer" method="_on_lever_interacted"]
