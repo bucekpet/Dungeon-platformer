@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scrpits/World.gd" id="1_e5b6p"]
 [ext_resource type="PackedScene" uid="uid://y1q5ogxvsjcb" path="res://Environments/world_environment.tscn" id="2_0ptni"]
-[ext_resource type="PackedScene" uid="uid://2oxdgu03lnbk" path="res://addons/character-controller/example/main/player.tscn" id="3_fympx"]
+[ext_resource type="PackedScene" uid="uid://dnk0qwut63aip" path="res://player_2.tscn" id="2_3rmd6"]
 [ext_resource type="PackedScene" uid="uid://lra67ejmcymt" path="res://Modules/room.tscn" id="4_tggct"]
 [ext_resource type="PackedScene" uid="uid://cew6o18i1dc" path="res://Modules/hallway.tscn" id="5_q0wsy"]
 [ext_resource type="Material" uid="uid://cexyqw8bhidji" path="res://Materials/ground_material.tres" id="5_v88kc"]
@@ -18,12 +18,14 @@
 [node name="World" type="Node3D"]
 script = ExtResource("1_e5b6p")
 
-[node name="WorldEnvironment" parent="." instance=ExtResource("2_0ptni")]
-
-[node name="Player" parent="." instance=ExtResource("3_fympx")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 3.44111, 1, -0.174134)
-collision_layer = 2
+[node name="player 2" parent="." instance=ExtResource("2_3rmd6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0)
 speed = 4
+jump_height = 12
+depletion_rate = 50
+recovery_rate = 100
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("2_0ptni")]
 
 [node name="Room 1" type="Node" parent="."]
 
@@ -37,7 +39,7 @@ script = ExtResource("9_cs36x")
 aflame = true
 
 [node name="Lever" parent="Room 1/Objects" instance=ExtResource("11_kj8xx")]
-transform = Transform3D(-0.829905, 0, -0.557905, 0, 1, 0, 0.557905, 0, -0.829905, 4.89172, 0, -3.99368)
+transform = Transform3D(1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, 4.89172, 1.49984, -5.56465)
 
 [node name="Door pivot" type="Node3D" parent="Room 1/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.90829, 1.40617, -0.290485)
@@ -81,14 +83,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8819, 1.46484, 0.309147)
 
 [node name="spikes2" parent="Hallway 1/Objects" instance=ExtResource("14_nouua")]
 transform = Transform3D(0.400303, 0, 0, 0, 0.458074, 0, 0, 0, 0.366846, 1.5166, 0, 0)
+up_time = 0.5
+down_time = 1.5
+speed_scale = 2.0
 
 [node name="spikes" parent="Hallway 1/Objects" instance=ExtResource("14_nouua")]
 transform = Transform3D(0.400303, 0, 0, 0, 0.458074, 0, 0, 0, 0.366846, -0.6242, 0, 0)
-delay = 1.0
+delay = 0.5
+up_time = 0.5
+down_time = 1.5
+speed_scale = 2.0
 
 [node name="spikes3" parent="Hallway 1/Objects" instance=ExtResource("14_nouua")]
 transform = Transform3D(0.400303, 0, 0, 0, 0.458074, 0, 0, 0, 0.366846, -2.8018, 0, 0)
-delay = 2.0
+delay = 1.0
+up_time = 0.5
+down_time = 1.5
+speed_scale = 2.0
 
 [node name="torch" parent="Hallway 1/Objects" instance=ExtResource("12_a01gh")]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -0.48, 2.48552, -5.6544)
@@ -181,7 +192,7 @@ transform = Transform3D(0.628493, 0, 0.777816, 0, 1, 0, -0.777816, 0, 0.628493, 
 transform = Transform3D(0.719097, 0, 0.69491, 0, 1, 0, -0.69491, 0, 0.719097, 4.0551, 1.57103, -4.29018)
 
 [node name="Door pivot" type="Node3D" parent="Room 2/Objects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.92329, 1.54975, 0.117697)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.92329, 1.54975, 0.0948669)
 
 [node name="Door" parent="Room 2/Objects/Door pivot" instance=ExtResource("10_mmg8y")]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://2oxdgu03lnbk"]
+[gd_scene load_steps=11 format=3 uid="uid://2oxdgu03lnbk"]
 
 [ext_resource type="PackedScene" uid="uid://8oy3xm2sff8" path="res://addons/character-controller/fps/fps_controller_3d.tscn" id="1_fbpun"]
 [ext_resource type="Script" path="res://addons/character-controller/example/main/player.gd" id="2_8r0nc"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://Scrpits/interact_raycast.gd" id="4_bkka8"]
 [ext_resource type="PackedScene" path="res://addons/character-controller/example/main/audios/player_audios.tscn" id="4_ux8kv"]
 [ext_resource type="Texture2D" uid="uid://dw8tv076ehjtk" path="res://Textures/crosshair001.png" id="6_51ges"]
+[ext_resource type="Texture2D" uid="uid://dgpk0vcgxi2da" path="res://Textures/progress bar/enemy_health_bar_background_000.png" id="7_5mpq2"]
+[ext_resource type="Texture2D" uid="uid://boq86jdbnme7g" path="res://Textures/progress bar/enemy_health_bar_foreground_000.png" id="8_nrbat"]
+[ext_resource type="Texture2D" uid="uid://cy221um61x87t" path="res://Textures/progress bar/enemy_health_bar_000.png" id="9_4pgh3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fn1rj"]
 
@@ -20,6 +23,12 @@ input_jump_action_name = "move_jump"
 input_crouch_action_name = "move_crouch"
 input_fly_mode_action_name = "move_fly_mode"
 underwater_env = ExtResource("3_dxksd")
+
+[node name="Walk Ability 3D" parent="." index="2"]
+_active = false
+
+[node name="Jump Ability 3D" parent="." index="5"]
+_active = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head" index="2"]
 light_color = Color(0.960784, 0.682353, 0.294118, 1)
@@ -57,5 +66,27 @@ collision_mask = 8
 
 [node name="Collision" type="CollisionShape3D" parent="Hurtbox" index="0"]
 shape = SubResource("CapsuleShape3D_fn1rj")
+
+[node name="UI" type="CanvasLayer" parent="." index="12"]
+
+[node name="Stamina bar" type="TextureProgressBar" parent="UI" index="0"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -333.0
+offset_top = -140.0
+offset_right = 333.0
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("7_5mpq2")
+texture_over = ExtResource("8_nrbat")
+texture_progress = ExtResource("9_4pgh3")
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

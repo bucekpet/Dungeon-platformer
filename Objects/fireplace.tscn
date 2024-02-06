@@ -177,9 +177,12 @@ process_material = SubResource("ParticleProcessMaterial_bhjyo")
 draw_pass_1 = SubResource("QuadMesh_20thr")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.388362, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.519572, 0)
 light_color = Color(0.960784, 0.682353, 0.294118, 1)
 light_energy = 0.0
+shadow_enabled = true
+shadow_opacity = 0.5
+shadow_blur = 10.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

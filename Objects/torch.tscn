@@ -78,3 +78,6 @@ draw_pass_1 = SubResource("QuadMesh_wf2gi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25624, 1.85402, 0)
 light_color = Color(0.960784, 0.682353, 0.294118, 1)
 light_energy = 5.0
+shadow_enabled = true
+shadow_opacity = 0.5
+shadow_blur = 10.0

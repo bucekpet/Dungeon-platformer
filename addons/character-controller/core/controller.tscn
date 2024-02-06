@@ -23,6 +23,7 @@ target_position = Vector3(0, 1, 0)
 
 [node name="Walk Ability 3D" type="Node3D" parent="."]
 script = ExtResource("9_laych")
+_active = true
 
 [node name="Sprint Ability 3D" type="Node3D" parent="."]
 script = ExtResource("8_8b02o")
