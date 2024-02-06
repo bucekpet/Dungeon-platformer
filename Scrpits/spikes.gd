@@ -4,6 +4,7 @@ extends Node3D
 @export var up_time: float = 1
 @export var down_time: float = 3
 @export var speed_scale: float = 1
+@export var always_up: bool = false
 
 @onready var delay_timer: Timer = $Delay
 @onready var up_timer: Timer = $"Up-time"
@@ -11,16 +12,19 @@ extends Node3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
-	animation_player.speed_scale = speed_scale
-	up_timer.wait_time = up_time
-	down_timer.wait_time = down_time
-	
-	if delay > 0:
-		delay_timer.wait_time = delay
-		delay_timer.start()
+	if always_up:
+		animation_player.play('Up')
 	else:
-		go_up()
-		up_timer.start()
+		animation_player.speed_scale = speed_scale
+		up_timer.wait_time = up_time
+		down_timer.wait_time = down_time
+		
+		if delay > 0:
+			delay_timer.wait_time = delay
+			delay_timer.start()
+		else:
+			go_up()
+			up_timer.start()
 
 func go_up() -> void:
 	animation_player.play('Up')
