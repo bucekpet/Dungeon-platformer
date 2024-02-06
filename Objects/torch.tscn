@@ -1,0 +1,80 @@
+[gd_scene load_steps=16 format=3 uid="uid://cv6ngomq2nqpp"]
+
+[ext_resource type="PackedScene" uid="uid://bnjimhowhy0nu" path="res://Models/torch.glb" id="1_8154b"]
+[ext_resource type="Texture2D" uid="uid://c2qyq7sv4f845" path="res://Textures/wood/Wood062_1K-JPG_Color.jpg" id="2_vef72"]
+[ext_resource type="Texture2D" uid="uid://3178rlwpscff" path="res://Textures/wood/Wood062_1K-JPG_AmbientOcclusion.jpg" id="3_6kgdw"]
+[ext_resource type="Texture2D" uid="uid://if8sydn1e4if" path="res://Textures/wood/Wood062_1K-JPG_Displacement.jpg" id="4_10o0d"]
+[ext_resource type="Texture2D" uid="uid://4reyrddsmt77" path="res://Textures/wood/Wood062_1K-JPG_NormalGL.jpg" id="5_f2nf4"]
+[ext_resource type="Texture2D" uid="uid://uckt2ov234oy" path="res://Textures/wood/Wood062_1K-JPG_Roughness.jpg" id="6_ghjra"]
+[ext_resource type="Texture2D" uid="uid://d12ui64g11n2c" path="res://Textures/particles/fire_02.png" id="7_k4fpj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4qbfc"]
+albedo_color = Color(0.745098, 0.745098, 0.745098, 1)
+albedo_texture = ExtResource("2_vef72")
+metallic_specular = 0.0
+roughness_texture = ExtResource("6_ghjra")
+normal_enabled = true
+normal_texture = ExtResource("5_f2nf4")
+ao_enabled = true
+ao_texture = ExtResource("3_6kgdw")
+heightmap_enabled = true
+heightmap_texture = ExtResource("4_10o0d")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="Gradient" id="Gradient_rk73l"]
+offsets = PackedFloat32Array(0, 0.554945)
+colors = PackedColorArray(1, 0.816797, 0, 1, 1, 0.108592, 0.000184953, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_asbkc"]
+gradient = SubResource("Gradient_rk73l")
+
+[sub_resource type="Curve" id="Curve_jx44l"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.338095, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_eagla"]
+curve = SubResource("Curve_jx44l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1ar0g"]
+angle_max = 360.0
+direction = Vector3(0, 1, 0)
+spread = 5.0
+initial_velocity_min = 0.5
+initial_velocity_max = 0.5
+gravity = Vector3(0, 3, 0)
+scale_curve = SubResource("CurveTexture_eagla")
+color_ramp = SubResource("GradientTexture1D_asbkc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jv8v2"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("7_k4fpj")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_wf2gi"]
+material = SubResource("StandardMaterial3D_jv8v2")
+
+[node name="torch" instance=ExtResource("1_8154b")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Torch" parent="." index="0"]
+transform = Transform3D(0.238733, 0.232507, 0, -0.232507, 0.238733, 0, 0, 0, 0.333246, 0.433171, 0.602506, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_4qbfc")
+
+[node name="Flames" type="GPUParticles3D" parent="." index="1"]
+transform = Transform3D(1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 1.25363, 1.2532, 0)
+speed_scale = 0.8
+process_material = SubResource("ParticleProcessMaterial_1ar0g")
+draw_pass_1 = SubResource("QuadMesh_wf2gi")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25624, 1.85402, 0)
+light_color = Color(0.960784, 0.682353, 0.294118, 1)
+light_energy = 5.0

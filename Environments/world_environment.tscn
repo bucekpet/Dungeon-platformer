@@ -10,13 +10,13 @@ sky_material = SubResource("ProceduralSkyMaterial_ifsgq")
 [sub_resource type="Environment" id="Environment_xfgu4"]
 background_mode = 2
 sky = SubResource("Sky_pabtl")
-ambient_light_color = Color(0.952941, 0.913725, 0.670588, 1)
+ambient_light_color = Color(0.960784, 0.682353, 0.294118, 1)
 ambient_light_sky_contribution = 0.0
 ambient_light_energy = 0.04
 tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
-fog_light_color = Color(0.952941, 0.913725, 0.670588, 1)
+fog_light_color = Color(0.960784, 0.682353, 0.294118, 1)
 fog_light_energy = 0.02
 fog_density = 0.075
 

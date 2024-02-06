@@ -22,7 +22,7 @@ input_fly_mode_action_name = "move_fly_mode"
 underwater_env = ExtResource("3_dxksd")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head" index="2"]
-light_color = Color(0.952941, 0.913725, 0.670588, 1)
+light_color = Color(0.960784, 0.682353, 0.294118, 1)
 light_energy = 2.0
 spot_range = 9.72274
 spot_angle = 67.3274
