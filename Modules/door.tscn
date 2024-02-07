@@ -1,42 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpnnygnt0rj4l"]
+[gd_scene load_steps=6 format=3 uid="uid://cl7kwwwylfjjr"]
 
-[ext_resource type="Material" uid="uid://db3emt22sot2i" path="res://Materials/rock_material.tres" id="1_rqng7"]
-[ext_resource type="Script" path="res://Scrpits/door.gd" id="2_huilr"]
+[ext_resource type="Script" path="res://Scrpits/door.gd" id="1_k1v3u"]
+[ext_resource type="Material" uid="uid://db3emt22sot2i" path="res://Materials/rock_material.tres" id="2_426vc"]
 
-[sub_resource type="Animation" id="Animation_0qkkl"]
+[sub_resource type="Animation" id="Animation_561bk"]
 resource_name = "Open"
 length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Door shape:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -3.2, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:use_collision")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"values": [Vector3(0, 0, 0), Vector3(0, -3.5, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_x7xuu"]
+[sub_resource type="Animation" id="Animation_wdw1w"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Door shape:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -45,36 +33,24 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:use_collision")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_iyr7h"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h0uat"]
 _data = {
-"Open": SubResource("Animation_0qkkl"),
-"RESET": SubResource("Animation_x7xuu")
+"Open": SubResource("Animation_561bk"),
+"RESET": SubResource("Animation_wdw1w")
 }
 
-[node name="Door" type="CSGCylinder3D"]
-transform = Transform3D(-1.2763e-07, 2.56313, -9.45017e-14, -2.68993, -1.03216e-07, 1.1244, 1.13566, 4.35769e-08, 2.66326, 0, 0, 0)
-use_collision = true
-collision_mask = 0
+[node name="Door" type="Node3D"]
+script = ExtResource("1_k1v3u")
+
+[node name="Door shape" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1.34492e-07, 2.70093, -2.08399e-13, -2.83454, -1.08765e-07, 1.18485, 1.19671, 4.59198e-08, 2.80644, 0, 0, 0)
 radius = 0.547141
 height = 0.219749
 sides = 9
-material = ExtResource("1_rqng7")
-script = ExtResource("2_huilr")
+material = ExtResource("2_426vc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_iyr7h")
+"": SubResource("AnimationLibrary_h0uat")
 }
