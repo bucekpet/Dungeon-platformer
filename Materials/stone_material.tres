@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://cijtlw1uya7md"]
+
+[ext_resource type="Texture2D" uid="uid://bu6b7st0lugk1" path="res://Textures/stone/Tiles093_1K-JPG_Color.jpg" id="1_vev5v"]
+[ext_resource type="Texture2D" uid="uid://drw8r4efqo05r" path="res://Textures/stone/Tiles093_1K-JPG_AmbientOcclusion.jpg" id="2_smrfp"]
+[ext_resource type="Texture2D" uid="uid://cmt6d0fw1fit6" path="res://Textures/stone/Tiles093_1K-JPG_Displacement.jpg" id="3_4f8ov"]
+[ext_resource type="Texture2D" uid="uid://dtlg5l8o5s0wp" path="res://Textures/stone/Tiles093_1K-JPG_NormalGL.jpg" id="4_1axkf"]
+[ext_resource type="Texture2D" uid="uid://cvxce28jl23vd" path="res://Textures/stone/Tiles093_1K-JPG_Roughness.jpg" id="5_yqigo"]
+
+[resource]
+albedo_texture = ExtResource("1_vev5v")
+metallic_specular = 0.0
+roughness_texture = ExtResource("5_yqigo")
+normal_enabled = true
+normal_texture = ExtResource("4_1axkf")
+ao_enabled = true
+ao_texture = ExtResource("2_smrfp")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_4f8ov")
+uv1_triplanar = true
