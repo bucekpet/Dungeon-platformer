@@ -1,5 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://cylp5llh81ku"]
+[gd_scene load_steps=23 format=3 uid="uid://cylp5llh81ku"]
 
+[ext_resource type="Script" path="res://Scrpits/fireplace.gd" id="1_jucnl"]
 [ext_resource type="Texture2D" uid="uid://c2qyq7sv4f845" path="res://Textures/wood/Wood062_1K-JPG_Color.jpg" id="2_6tcfx"]
 [ext_resource type="Texture2D" uid="uid://3178rlwpscff" path="res://Textures/wood/Wood062_1K-JPG_AmbientOcclusion.jpg" id="3_ucws0"]
 [ext_resource type="Texture2D" uid="uid://if8sydn1e4if" path="res://Textures/wood/Wood062_1K-JPG_Displacement.jpg" id="4_p7iwt"]
@@ -162,6 +163,7 @@ _data = {
 [node name="fireplace" type="StaticBody3D"]
 collision_layer = 4
 collision_mask = 0
+script = ExtResource("1_jucnl")
 
 [node name="Cylinder" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00058952)

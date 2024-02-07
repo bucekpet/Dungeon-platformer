@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://08ppxnomymed"]
+
+[ext_resource type="PackedScene" uid="uid://lra67ejmcymt" path="res://Modules/room.tscn" id="1_2wixa"]
+[ext_resource type="Script" path="res://Scrpits/World.gd" id="1_prc8q"]
+[ext_resource type="PackedScene" uid="uid://cylp5llh81ku" path="res://Objects/fireplace.tscn" id="2_7yxmy"]
+[ext_resource type="PackedScene" uid="uid://2oxdgu03lnbk" path="res://addons/character-controller/example/main/player.tscn" id="3_x3ebi"]
+[ext_resource type="PackedScene" uid="uid://y1q5ogxvsjcb" path="res://Environments/world_environment.tscn" id="5_ts245"]
+
+[node name="Test world" type="Node3D"]
+script = ExtResource("1_prc8q")
+
+[node name="Room" parent="." instance=ExtResource("1_2wixa")]
+
+[node name="fireplace" parent="." instance=ExtResource("2_7yxmy")]
+aflame = true
+
+[node name="Player" parent="." instance=ExtResource("3_x3ebi")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 1, 0)
+speed = 4
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("5_ts245")]

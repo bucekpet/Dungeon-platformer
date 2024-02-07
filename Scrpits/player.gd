@@ -50,6 +50,10 @@ func _physics_process(delta):
 		var input_axis = Input.get_vector(input_back_name, input_forward_name, input_left_name, input_right_name)
 		var input_jump = Input.is_action_just_pressed(input_jump_name)
 		var input_sprint = Input.is_action_pressed(input_sprint_name)
+		print(input_axis.y)
+		
+		# Lean head when moving left/right
+		head.lean(input_axis.y, delta)
 		
 		if input_sprint and input_axis > Vector2.ZERO:
 			stamina = clamp(stamina - (depletion_rate * delta), 0 , 100)
@@ -68,6 +72,9 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
+	
+	
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_head(event.relative)
@@ -80,7 +87,7 @@ func move(_delta: float, input_axis := Vector2.ZERO, input_jump := false, input_
 	var _direction_base_node = self
 	var direction = _direction_input(input_axis, _direction_base_node)
 	
-	var multiplier
+	var multiplier: float
 	
 	if is_on_floor():
 		if input_jump and not head_check.is_colliding():
