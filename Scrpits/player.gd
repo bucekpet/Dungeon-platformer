@@ -140,3 +140,7 @@ func die() -> void:
 
 func _on_hurtbox_body_entered(body: Node3D) -> void:
 	die()
+
+
+func _on_hurtbox_area_entered(area: Area3D) -> void:
+	die()

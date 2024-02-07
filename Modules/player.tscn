@@ -71,4 +71,5 @@ texture_under = ExtResource("4_fqhyn")
 texture_over = ExtResource("5_xc05r")
 texture_progress = ExtResource("6_j6iwv")
 
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

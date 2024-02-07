@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cul3bau05txky"]
+
+[ext_resource type="PackedScene" uid="uid://bjxwf44nk6eos" path="res://Models/firetrap.glb" id="1_jyhst"]
+[ext_resource type="Texture2D" uid="uid://f40gec02scd6" path="res://Textures/bricks/Bricks076B_1K-JPG_Color.jpg" id="2_cik1x"]
+[ext_resource type="Texture2D" uid="uid://cd17w6n0y2fdo" path="res://Textures/bricks/Bricks076B_1K-JPG_Roughness.jpg" id="3_476y2"]
+[ext_resource type="Texture2D" uid="uid://84rr18a3is27" path="res://Textures/bricks/Bricks076B_1K-JPG_NormalGL.jpg" id="4_131w7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vdyen"]
+albedo_color = Color(0.380392, 0.380392, 0.380392, 1)
+albedo_texture = ExtResource("2_cik1x")
+metallic_specular = 0.0
+roughness_texture = ExtResource("3_476y2")
+normal_enabled = true
+normal_texture = ExtResource("4_131w7")
+heightmap_enabled = true
+heightmap_scale = 16.0
+heightmap_texture = ExtResource("3_476y2")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[node name="firetrap" instance=ExtResource("1_jyhst")]
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0, 0)
+
+[node name="Circle" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.014233, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_vdyen")
+
+[node name="Circle_001" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.014233, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_vdyen")
+
+[node name="Circle_002" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.014233, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_vdyen")
+
+[node name="Circle_003" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.014233, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_vdyen")

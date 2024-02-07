@@ -59,14 +59,14 @@ uv1_world_triplanar = true
 offsets = PackedFloat32Array(0, 0.554945)
 colors = PackedColorArray(1, 0.816797, 0, 1, 1, 0.108592, 0.000184953, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_md6sc"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6bp0x"]
 gradient = SubResource("Gradient_uho8x")
 
 [sub_resource type="Curve" id="Curve_rg16n"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.338095, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_e3g3p"]
+[sub_resource type="CurveTexture" id="CurveTexture_aiekr"]
 curve = SubResource("Curve_rg16n")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bhjyo"]
@@ -80,10 +80,10 @@ linear_accel_min = 1.0
 linear_accel_max = 1.0
 scale_min = 2.0
 scale_max = 2.0
-scale_curve = SubResource("CurveTexture_e3g3p")
-color_ramp = SubResource("GradientTexture1D_md6sc")
+scale_curve = SubResource("CurveTexture_aiekr")
+color_ramp = SubResource("GradientTexture1D_6bp0x")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xfak"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4h7uo"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
@@ -95,7 +95,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_20thr"]
-material = SubResource("StandardMaterial3D_7xfak")
+material = SubResource("StandardMaterial3D_4h7uo")
 
 [sub_resource type="Animation" id="Animation_xv2nk"]
 resource_name = "Active"
