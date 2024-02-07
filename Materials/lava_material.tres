@@ -1,0 +1,25 @@
+[gd_resource type="SphereMesh" load_steps=7 format=3 uid="uid://d1vlxc7d56s2t"]
+
+[ext_resource type="Texture2D" uid="uid://gpiq2obl7xex" path="res://Textures/lava/Lava004_1K-JPG_Color.jpg" id="1_jfb8u"]
+[ext_resource type="Texture2D" uid="uid://c2q7xslamcjmx" path="res://Textures/lava/Lava004_1K-JPG_Emission.jpg" id="2_mjriv"]
+[ext_resource type="Texture2D" uid="uid://bki0g68ugvafs" path="res://Textures/lava/Lava004_1K-JPG_Displacement.jpg" id="3_4wy7i"]
+[ext_resource type="Texture2D" uid="uid://clgprvlk7vr6o" path="res://Textures/lava/Lava004_1K-JPG_NormalGL.jpg" id="4_884uu"]
+[ext_resource type="Texture2D" uid="uid://c1u1eadey40ag" path="res://Textures/lava/Lava004_1K-JPG_Roughness.jpg" id="5_1tkq2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njvux"]
+albedo_texture = ExtResource("1_jfb8u")
+metallic_specular = 0.0
+roughness_texture = ExtResource("5_1tkq2")
+emission_enabled = true
+emission_energy_multiplier = 5.0
+emission_texture = ExtResource("2_mjriv")
+normal_enabled = true
+normal_texture = ExtResource("4_884uu")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_4wy7i")
+uv1_triplanar = true
+
+[resource]
+material = SubResource("StandardMaterial3D_njvux")
+radius = 0.15
+height = 0.3

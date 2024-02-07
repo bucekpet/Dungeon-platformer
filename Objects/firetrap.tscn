@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cul3bau05txky"]
+[gd_scene load_steps=7 format=3 uid="uid://cul3bau05txky"]
 
 [ext_resource type="PackedScene" uid="uid://bjxwf44nk6eos" path="res://Models/firetrap.glb" id="1_jyhst"]
 [ext_resource type="Texture2D" uid="uid://f40gec02scd6" path="res://Textures/bricks/Bricks076B_1K-JPG_Color.jpg" id="2_cik1x"]
+[ext_resource type="Script" path="res://Scrpits/firetrap.gd" id="2_erwtm"]
 [ext_resource type="Texture2D" uid="uid://cd17w6n0y2fdo" path="res://Textures/bricks/Bricks076B_1K-JPG_Roughness.jpg" id="3_476y2"]
 [ext_resource type="Texture2D" uid="uid://84rr18a3is27" path="res://Textures/bricks/Bricks076B_1K-JPG_NormalGL.jpg" id="4_131w7"]
 
@@ -21,19 +22,40 @@ uv1_world_triplanar = true
 
 [node name="firetrap" instance=ExtResource("1_jyhst")]
 transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0, 0)
+script = ExtResource("2_erwtm")
+spawn_time = 1.0
 
 [node name="Circle" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.014233, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_vdyen")
 
+[node name="Spawn 1" type="Marker3D" parent="Circle" index="0"]
+
 [node name="Circle_001" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.014233, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_vdyen")
+
+[node name="Spawn 2" type="Marker3D" parent="Circle_001" index="0"]
 
 [node name="Circle_002" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.014233, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_vdyen")
 
+[node name="Spawn 3" type="Marker3D" parent="Circle_002" index="0"]
+
 [node name="Circle_003" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.014233, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_vdyen")
+
+[node name="Spawn 4" type="Marker3D" parent="Circle_003" index="0"]
+
+[node name="Spawn timer" type="Timer" parent="." index="4"]
+
+[node name="Delay timer" type="Timer" parent="." index="5"]
+one_shot = true
+
+[node name="Target" type="Marker3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0303, 0)
+
+[connection signal="timeout" from="Spawn timer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="Delay timer" to="." method="_on_delay_timeout"]

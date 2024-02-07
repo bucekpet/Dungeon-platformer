@@ -50,12 +50,11 @@ func _physics_process(delta):
 		var input_axis = Input.get_vector(input_back_name, input_forward_name, input_left_name, input_right_name)
 		var input_jump = Input.is_action_just_pressed(input_jump_name)
 		var input_sprint = Input.is_action_pressed(input_sprint_name)
-		print(input_axis.y)
 		
 		# Lean head when moving left/right
 		head.lean(input_axis.y, delta)
 		
-		if input_sprint and input_axis > Vector2.ZERO:
+		if input_sprint and input_axis != Vector2.ZERO:
 			stamina = clamp(stamina - (depletion_rate * delta), 0 , 100)
 		else:
 			stamina = clamp(stamina + (recovery_rate * delta), 0 , 100)

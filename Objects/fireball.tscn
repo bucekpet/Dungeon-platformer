@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bb60tgpugm8s3"]
+[gd_scene load_steps=22 format=3 uid="uid://bb60tgpugm8s3"]
 
 [ext_resource type="Texture2D" uid="uid://gpiq2obl7xex" path="res://Textures/lava/Lava004_1K-JPG_Color.jpg" id="1_54xtr"]
 [ext_resource type="Script" path="res://Scrpits/fireball.gd" id="1_wqbev"]
@@ -9,13 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://d12ui64g11n2c" path="res://Textures/particles/fire_02.png" id="7_1noer"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qg7qf"]
+radius = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njvux"]
 albedo_texture = ExtResource("1_54xtr")
-metallic_specular = 0.0
 roughness_texture = ExtResource("5_ar11j")
 emission_enabled = true
-emission_energy_multiplier = 5.0
+emission_energy_multiplier = 16.0
 emission_texture = ExtResource("2_avuu8")
 normal_enabled = true
 normal_texture = ExtResource("4_n2lj8")
@@ -23,7 +23,7 @@ heightmap_enabled = true
 heightmap_texture = ExtResource("3_appno")
 uv1_triplanar = true
 
-[sub_resource type="SphereMesh" id="SphereMesh_fiwgs"]
+[sub_resource type="SphereMesh" id="SphereMesh_0fmfk"]
 material = SubResource("StandardMaterial3D_njvux")
 radius = 0.15
 height = 0.3
@@ -98,9 +98,100 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flames:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:monitorable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ullhd"]
+resource_name = "Destroy"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"destroy"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flames:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:monitorable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rt6mh"]
 _data = {
+"Destroy": SubResource("Animation_ullhd"),
 "Flying": SubResource("Animation_uhxgq"),
 "RESET": SubResource("Animation_py1bc")
 }
@@ -115,14 +206,7 @@ speed = 8.0
 shape = SubResource("SphereShape3D_qg7qf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_fiwgs")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-light_color = Color(0.960784, 0.682353, 0.294118, 1)
-light_energy = 2.0
-shadow_enabled = true
-shadow_opacity = 0.5
-shadow_blur = 10.0
+mesh = SubResource("SphereMesh_0fmfk")
 
 [node name="Flames" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0152355, -0.0158601)
