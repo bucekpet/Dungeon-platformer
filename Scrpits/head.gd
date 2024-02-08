@@ -13,9 +13,9 @@ func _ready() -> void:
 
 
 func rotate_camera(mouse_axis : Vector2) -> void:
-	# Horizontal mouse look.
+	## Horizontal mouse look.
 	actual_rotation.y -= mouse_axis.x * (mouse_sensitivity/1000)
-	# Vertical mouse look.
+	## Vertical mouse look.
 	actual_rotation.x = clamp(actual_rotation.x - mouse_axis.y * (mouse_sensitivity/1000), -vertical_angle_limit, vertical_angle_limit)
 	
 	get_owner().rotation.y = actual_rotation.y
