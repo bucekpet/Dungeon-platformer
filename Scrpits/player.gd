@@ -18,8 +18,9 @@ extends CharacterBody3D
 @export var jump_height := 10
 
 @export_group("Stamina")
-@export var depletion_rate := 100
 @export var recovery_rate := 200
+@export var jump_cost := 33.0
+@export var sprint_cost := 100
 
 var input_back_name := "move_backward"
 var input_forward_name:= "move_forward"
@@ -51,14 +52,15 @@ func _physics_process(delta):
 		var input_jump = Input.is_action_just_pressed(input_jump_name)
 		var input_sprint = Input.is_action_pressed(input_sprint_name)
 		
-		# Lean head when moving left/right
+		## Lean head when moving left/right
 		head.lean(input_axis.y, delta)
 		
 		if input_sprint and input_axis != Vector2.ZERO:
-			stamina = clamp(stamina - (depletion_rate * delta), 0 , 100)
+			change_stamina(-sprint_cost * delta)
 		else:
-			stamina = clamp(stamina + (recovery_rate * delta), 0 , 100)
+			change_stamina(recovery_rate * delta)
 		
+		## Check if can sprint
 		if stamina > 0:
 			can_sprint = true
 		else: 
@@ -71,8 +73,8 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-	
-	
+func change_stamina(amount: float) -> void:
+	stamina = clamp(stamina + amount, 0 , 100)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -88,9 +90,11 @@ func move(_delta: float, input_axis := Vector2.ZERO, input_jump := false, input_
 	
 	var multiplier: float
 	
+	## Jump
 	if is_on_floor():
-		if input_jump and not head_check.is_colliding():
+		if input_jump and not head_check.is_colliding() and stamina > 0:
 			velocity.y = jump_height
+			change_stamina(-jump_cost)
 	else:
 		velocity.y -= gravity * _delta
 		
@@ -108,7 +112,7 @@ func move(_delta: float, input_axis := Vector2.ZERO, input_jump := false, input_
 	if not is_on_floor:
 		temp_accel *= air_control
 	
-	if input_sprint and can_sprint:
+	if input_sprint and can_sprint and is_on_floor():
 		multiplier = sprint_speed_multiplier
 	else:
 		multiplier = 1.0

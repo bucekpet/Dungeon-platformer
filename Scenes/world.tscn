@@ -19,11 +19,11 @@
 script = ExtResource("1_e5b6p")
 
 [node name="Player" parent="." instance=ExtResource("2_3rmd6")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.11695, 0, 0)
-speed = 4
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -26.4945, 0, -3.17055)
+speed = 5
 jump_height = 12
-depletion_rate = 50
 recovery_rate = 100
+sprint_cost = 50
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("2_0ptni")]
 
