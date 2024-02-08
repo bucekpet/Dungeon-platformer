@@ -45,6 +45,8 @@ script = ExtResource("1_k1v3u")
 
 [node name="Door shape" type="CSGCylinder3D" parent="."]
 transform = Transform3D(-1.34492e-07, 2.70093, -2.08399e-13, -2.83454, -1.08765e-07, 1.18485, 1.19671, 4.59198e-08, 2.80644, 0, 0, 0)
+use_collision = true
+collision_mask = 0
 radius = 0.547141
 height = 0.219749
 sides = 9

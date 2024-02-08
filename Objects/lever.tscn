@@ -60,7 +60,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mymf4"]
-size = Vector3(0.644875, 0.815811, 0.88858)
+size = Vector3(0.644875, 0.695225, 0.87117)
 
 [node name="Lever" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0309972, 0)
@@ -76,12 +76,12 @@ size = Vector3(0.3, 0.1, 0.7)
 material = ExtResource("1_giptv")
 
 [node name="Level pivot" type="Node3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13125, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0717851, 0)
 
 [node name="Lever" type="CSGCylinder3D" parent="CSGCombiner3D/Level pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.921863, 0.387516, 0, -0.387516, 0.921863, 0, 0.254358, -0.120359)
-radius = 0.035
-height = 0.617
+radius = 0.045
+height = 0.46
 material = SubResource("StandardMaterial3D_0pucj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -91,7 +91,7 @@ libraries = {
 script = ExtResource("8_vh4qe")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013668, 0.433205, 0.0210114)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013668, 0.372912, 0.0123063)
 shape = SubResource("BoxShape3D_mymf4")
 
 [connection signal="interacted" from="." to="AnimationPlayer" method="_on_lever_interacted"]
