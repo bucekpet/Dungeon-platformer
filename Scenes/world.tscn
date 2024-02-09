@@ -19,7 +19,7 @@
 script = ExtResource("1_e5b6p")
 
 [node name="Player" parent="." instance=ExtResource("2_3rmd6")]
-transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -64.107, 0, -0.283989)
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 2.73643, 0, 0)
 speed = 5
 jump_height = 12
 recovery_rate = 100

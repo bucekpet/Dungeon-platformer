@@ -3,6 +3,7 @@ extends CharacterBody3D
 @onready var head: Marker3D = $Head
 @onready var head_check: RayCast3D = $"Head Check"
 @onready var stamina_bar: TextureProgressBar = $"UI/Stamina bar"
+@onready var coyote_timer = $"Coyote timer"
 
 @export_group("Movement")
 @export var gravity_multiplier := 3.0
@@ -16,6 +17,7 @@ extends CharacterBody3D
 
 @export_group("Jump")
 @export var jump_height := 10
+@export var coyote_time := 0.1
 
 @export_group("Stamina")
 @export var recovery_rate := 200
@@ -31,11 +33,13 @@ var input_jump_name := "move_jump"
 var _direction: Vector3
 var stamina := 100
 var can_sprint := true
+var can_jump := true
 
 @onready var gravity: float = (ProjectSettings.get_setting("physics/3d/default_gravity") * gravity_multiplier)
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	coyote_timer.wait_time = coyote_time
 
 func _process(delta: float) -> void:
 	stamina_bar.value = stamina
@@ -55,16 +59,27 @@ func _physics_process(delta):
 		## Lean head when moving left/right
 		head.lean(input_axis.y, delta)
 		
-		if input_sprint and input_axis != Vector2.ZERO:
+		## Deplete stamina with sprint
+		if input_sprint and velocity != Vector3.ZERO and is_on_floor():
 			change_stamina(-sprint_cost * delta)
 		else:
 			change_stamina(recovery_rate * delta)
+		
+		## Reset can_jump
+		if is_on_floor():
+			can_jump = true
+		elif can_jump and coyote_timer.is_stopped():
+			coyote_timer.start()
 		
 		## Check if can sprint
 		if stamina > 0:
 			can_sprint = true
 		else: 
 			can_sprint = false
+		
+		## Add gravity			
+		if not is_on_floor():
+			velocity.y -= gravity * delta
 			
 		move(delta, input_axis, input_jump, input_sprint)
 	else:
@@ -91,12 +106,12 @@ func move(_delta: float, input_axis := Vector2.ZERO, input_jump := false, input_
 	var multiplier: float
 	
 	## Jump
-	if is_on_floor():
+	if can_jump:
 		if input_jump and not head_check.is_colliding() and stamina > 0:
+			can_jump = false
 			velocity.y = jump_height
 			change_stamina(-jump_cost)
-	else:
-		velocity.y -= gravity * _delta
+
 		
 	var temp_vel := velocity
 	temp_vel.y = 0
@@ -147,3 +162,7 @@ func _on_hurtbox_body_entered(body: Node3D) -> void:
 
 func _on_hurtbox_area_entered(area: Area3D) -> void:
 	die()
+
+
+func _on_coyote_timer_timeout():
+	can_jump = false
