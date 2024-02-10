@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cm08263oiqyh4" path="res://Textures/paper/Paper005_1K-JPG_Roughness.jpg" id="4_kjmaa"]
 
 [resource]
+albedo_color = Color(0.85098, 0.85098, 0.85098, 1)
 albedo_texture = ExtResource("1_o4jcf")
 metallic_specular = 0.0
 roughness_texture = ExtResource("4_kjmaa")

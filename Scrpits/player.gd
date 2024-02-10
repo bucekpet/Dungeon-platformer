@@ -60,10 +60,11 @@ func _physics_process(delta):
 		head.lean(input_axis.y, delta)
 		
 		## Deplete stamina with sprint
-		if input_sprint and velocity != Vector3.ZERO and is_on_floor():
-			change_stamina(-sprint_cost * delta)
-		else:
-			change_stamina(recovery_rate * delta)
+		if Abilities.sprint_ability:
+			if input_sprint and velocity != Vector3.ZERO and is_on_floor():
+				change_stamina(-sprint_cost * delta)
+			else:
+				change_stamina(recovery_rate * delta)
 		
 		## Reset can_jump
 		if is_on_floor():
@@ -127,8 +128,12 @@ func move(_delta: float, input_axis := Vector2.ZERO, input_jump := false, input_
 	if not is_on_floor:
 		temp_accel *= air_control
 	
-	if input_sprint and can_sprint and is_on_floor():
-		multiplier = sprint_speed_multiplier
+	## Sprint
+	if Abilities.sprint_ability:
+		if input_sprint and can_sprint and is_on_floor():
+			multiplier = sprint_speed_multiplier
+		else:
+			multiplier = 1.0
 	else:
 		multiplier = 1.0
 	

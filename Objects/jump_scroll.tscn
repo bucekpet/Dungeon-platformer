@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://wrc6u8j757ge"]
+[gd_scene load_steps=9 format=3 uid="uid://dsab7tu1rq1ft"]
 
-[ext_resource type="PackedScene" uid="uid://4wl6al6joscc" path="res://Models/scroll.glb" id="1_38unu"]
-[ext_resource type="Material" uid="uid://cjlt656rgjfsj" path="res://Materials/paper_material.tres" id="2_j58i2"]
-[ext_resource type="Texture2D" uid="uid://di1u4d1axeoup" path="res://icon.svg" id="3_xhgmh"]
+[ext_resource type="PackedScene" uid="uid://4wl6al6joscc" path="res://Models/scroll.glb" id="1_qsl6r"]
+[ext_resource type="Material" uid="uid://cjlt656rgjfsj" path="res://Materials/paper_material.tres" id="2_dtccw"]
+[ext_resource type="Texture2D" uid="uid://y63duhv47jg3" path="res://Textures/icons/jump_icon.svg" id="3_wbyih"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1tycx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7r6c"]
-albedo_texture = ExtResource("3_xhgmh")
+transparency = 1
+albedo_texture = ExtResource("3_wbyih")
 
 [sub_resource type="Animation" id="Animation_2fil4"]
 resource_name = "Rotate"
@@ -47,14 +48,14 @@ _data = {
 "RESET": SubResource("Animation_8rm8w")
 }
 
-[node name="scroll" instance=ExtResource("1_38unu")]
+[node name="jump_scroll" instance=ExtResource("1_qsl6r")]
 
 [node name="Scroll_001" parent="." index="0"]
 transform = Transform3D(0.304924, 0, 0, 0, 0.402453, 0.528148, 0, -0.807407, 0.263256, -0.103296, 6.48409e-05, -0.0225202)
-surface_material_override/0 = ExtResource("2_j58i2")
+surface_material_override/0 = ExtResource("2_dtccw")
 
 [node name="Icon" type="MeshInstance3D" parent="Scroll_001" index="0"]
-transform = Transform3D(-0.733492, -2.95235e-08, 4.94079e-08, -9.97884e-09, 0.247918, 1.49012e-08, -2.55298e-08, 4.47035e-08, -0.379005, 0.338761, 0, -0.000245543)
+transform = Transform3D(-0.820086, -3.79588e-08, 3.86222e-08, -1.11569e-08, 0.318752, -7.45058e-09, -2.85438e-08, 1.04308e-07, -0.296269, 0.338761, 0.0184078, 0.0562112)
 mesh = SubResource("PlaneMesh_1tycx")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m7r6c")

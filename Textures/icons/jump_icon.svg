@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="580.26135"
+   height="384.88708"
+   viewBox="0 0 580.26135 384.88708"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="dungeon_platformer_icons.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:zoom="0.52591067"
+     inkscape:cx="1047.7064"
+     inkscape:cy="552.37518"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Vrstva 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-941.6488,-161.72462)">
+    <g
+       id="g14"
+       inkscape:label="Jump">
+      <g
+         id="path13">
+        <path
+           style="color:#000000;fill:#000000;stroke-linecap:round;stroke-dasharray:60, 120;-inkscape-stroke:none"
+           d="m 1240.8281,161.83008 c -4.3732,-0.16434 -8.7454,-0.13581 -13.1035,0.0801 -16.3,0.80098 -32.0675,4.2714 -46.8496,9.67187 a 30,30 0 0 0 -17.8848,38.47266 30,30 0 0 0 38.4746,17.88281 c 9.6185,-3.51398 19.5342,-5.62438 29.2051,-6.09961 h 0.01 l 0.01,-0.002 c 5.267,-0.26146 10.5412,-0.0646 15.709,0.59179 a 30,30 0 0 0 33.541,-25.98046 30,30 0 0 0 -25.9805,-33.54102 c -4.366,-0.55456 -8.7466,-0.91164 -13.125,-1.07617 z m 112.1114,58.6582 a 30,30 0 0 0 -21.2579,8.67969 30,30 0 0 0 -0.2148,42.42578 c 11.7281,11.84731 22.6692,24.89556 33.0547,38.72266 0,0.003 0,0.005 0.01,0.008 l 1.8028,2.41992 0.9746,1.32227 a 30,30 0 0 0 41.9433,6.38281 30,30 0 0 0 6.3829,-41.94336 l -1.084,-1.47266 -2.0117,-2.69922 -0.031,-0.041 c -11.646,-15.50605 -24.3036,-30.67395 -38.3965,-44.91016 a 30,30 0 0 0 -21.1679,-8.89453 z m -258.6426,20.68945 a 30,30 0 0 0 -20.6094,10.12305 c -14.1173,16.04612 -26.9635,32.85742 -38.9082,49.98242 a 30,30 0 0 0 7.4434,41.76758 30,30 0 0 0 41.7695,-7.44336 c 10.9349,-15.67735 22.4344,-30.68638 34.7422,-44.67578 a 30,30 0 0 0 -2.7071,-42.33984 30,30 0 0 0 -21.7304,-7.41407 z m 356.8437,127.72657 a 30,30 0 0 0 -11.2539,3.21679 30,30 0 0 0 -12.9707,40.39453 c 8.8883,17.29524 17.3262,34.89645 25.418,52.72657 a 30,30 0 0 0 39.7168,14.91992 30,30 0 0 0 14.9199,-39.71484 c -8.4382,-18.59356 -17.294,-37.07536 -26.6894,-55.35743 a 30,30 0 0 0 -29.1407,-16.18554 z m -450.4863,22.71679 a 30,30 0 0 0 -29.19727,16.08203 c -9.4241,18.1781 -18.38906,36.52808 -26.99609,54.98047 a 30,30 0 0 0 14.50586,39.86914 30,30 0 0 0 39.86914,-14.50586 c 8.30156,-17.79745 16.90036,-35.39479 25.88676,-52.72851 a 30,30 0 0 0 -12.8243,-40.44141 30,30 0 0 0 -11.2441,-3.25586 z"
+           id="path17" />
+        <g
+           id="g16">
+          <path
+             d="m 1503.598,301.4961 18.3121,245.11562 -171.4813,-176.09981 c 61.8645,18.19146 125.6212,-10.53637 153.1692,-69.01581 z"
+             style="color:#000000;fill:#000000;fill-rule:evenodd;-inkscape-stroke:none"
+             id="path16" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
