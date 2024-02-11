@@ -20,6 +20,11 @@ script = ExtResource("1_e5b6p")
 
 [node name="Player" parent="." instance=ExtResource("2_hxbpa")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 1, 0)
+double_jump_activated = true
+recovery_rate = 80.0
+in_air_recovery_rate = 20.0
+jump_cost = 20.0
+sprint_cost = 40.0
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("2_0ptni")]
 

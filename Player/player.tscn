@@ -13,6 +13,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 2
 script = ExtResource("1_083ff")
+double_jump_activated = false
 jump_height = 12.0
 second_jump_height = 8.0
 

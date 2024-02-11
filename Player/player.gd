@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+@export_category("Input")
 @export_group('Input names')
 @export var input_back_name := "move_backward"
 @export var input_forward_name := "move_forward"
@@ -8,6 +9,7 @@ extends CharacterBody3D
 @export var input_sprint_name := "move_sprint"
 @export var input_jump_name := "move_jump"
 
+@export_category("Abilities")
 @export_group("Abilities activation")
 @export var movement_activated := true
 @export var sprint_activated := true
@@ -30,18 +32,25 @@ extends CharacterBody3D
 @export_range(0, 20, 0.5) var second_jump_height := 10.0
 
 @export_group("Stamina")
-@export_range(0, 500, 10) var recovery_rate := 200.0
+@export_range(0, 200, 10) var recovery_rate := 200.0
+@export_range(0, 200, 10) var in_air_recovery_rate := 50.0
 @export_range(0, 100, 1) var jump_cost := 33.0
-@export_range(0, 500, 10) var sprint_cost := 100.0
+@export_range(0, 200, 10) var sprint_cost := 100.0
 
+@export_category("Settings")
 @export_group("Mouse")
 @export_range(0, 10, 0.05) var mouse_sensitivity := 2.0
 @export var vertical_angle_limit := 90.0
 
+@export_category("Juice")
 @export_group("Camera FOV")
 @export var min_fov := 75
 @export var max_fov := 90
 @export_range(0, 10, 0.1) var delta_fov := 3.0
+
+@export_group("Head lean")
+@export_range(0, 30, 0.5) var lean_amount := 10.0
+@export_range(0, 3, 0.1) var lean_accel := 1.0
 
 @onready var gravity: float = (ProjectSettings.get_setting("physics/3d/default_gravity") * gravity_multiplier)
 @onready var head: Marker3D = $Head
@@ -53,7 +62,9 @@ var _rotation := Vector2.ZERO
 var speed_multiplier := 1.0
 var can_jump := true
 var can_double_jump := false
-var stamina := 100
+var stamina := 100.0
+var is_sprinting := false
+var can_sprint := true
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -66,6 +77,7 @@ func _input(event: InputEvent) -> void:
 		rotate_head(event.relative)
 
 func _process(delta: float) -> void:
+	## Update stamina bar UI
 	stamina_bar.value = stamina
 	if stamina_bar.value >= 100:
 		stamina_bar.visible = false
@@ -77,11 +89,11 @@ func _physics_process(delta: float) -> void:
 	var input_sprint = Input.is_action_pressed(input_sprint_name)
 	var input_jump = Input.is_action_just_pressed(input_jump_name)
 	
-	if movement_activated:		handle_movement(input_axis, delta)
-	if sprint_activated: 		handle_sprint(input_sprint, delta); handle_camera_fov(input_sprint, delta)
+	if movement_activated:		handle_movement(input_axis, delta); handle_head_lean(input_axis, delta)
+	if sprint_activated: 		handle_sprint(input_axis ,input_sprint, delta); handle_camera_fov(delta)
 	if jump_activated:			handle_jump(input_jump, delta)
 	if double_jump_activated: 	handle_double_jump(input_jump)
-
+	
 	move_and_slide()
 	
 func rotate_head(mouse_axis: Vector2) -> void:
@@ -131,18 +143,28 @@ func handle_movement(input_axis: Vector2, delta: float) -> void:
 	velocity.x = temp_vel.x
 	velocity.z = temp_vel.z
 
-func handle_head_lean(delta: float) -> void:
-	pass
+func handle_head_lean(input_axis: Vector2 ,delta: float) -> void:
+	input_axis.y = clamp(input_axis.y * 2, -1.0, 1.0)
+	var target := -input_axis.y / lean_amount
+	head.rotation.z = lerp(head.rotation.z, target, lean_accel * delta)
 
-func handle_sprint(input_sprint: bool, delta: float) -> void:
-	if input_sprint:
-		speed_multiplier = sprint_speed_multiplier
-		change_stamina(-sprint_cost * delta)
+func handle_sprint(input_axis: Vector2, input_sprint: bool, delta: float) -> void:
+	can_sprint = true if stamina > 0 else false
+	if input_sprint and input_axis != Vector2.ZERO:
+		if can_sprint:
+			speed_multiplier = sprint_speed_multiplier
+			change_stamina(-sprint_cost * delta)
+		else:
+			speed_multiplier = 1.0
 	else:
 		speed_multiplier = 1.0
+		if is_on_floor():
+			change_stamina(recovery_rate * delta)
+		else:
+			change_stamina(in_air_recovery_rate * delta)
 
-func handle_camera_fov(input_sprint: bool, delta: float) -> void:
-	var target:float = max_fov if input_sprint else min_fov
+func handle_camera_fov(delta: float) -> void:
+	var target:float = max_fov if speed_multiplier > 1.0 else min_fov
 	camera_3d.fov = lerp(camera_3d.fov, target, delta_fov * delta)
 
 func handle_jump(input_jump: bool, delta: float) -> void:
@@ -172,7 +194,7 @@ func handle_double_jump(input_jump: bool) -> void:
 		velocity.y = second_jump_height
 
 func change_stamina(amount: float) -> void:
-	stamina = clamp(stamina + amount, 0 , 100)
+	stamina = clampf(stamina + amount, 0.0 , 100.0)
 
 func die() -> void:
 	position = Checkpoints.checkpoint
