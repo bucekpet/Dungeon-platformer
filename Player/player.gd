@@ -204,3 +204,12 @@ func _on_hurtbox_body_entered(body: Node3D) -> void:
 
 func _on_hurtbox_area_entered(area: Area3D) -> void:
 	die()
+
+func activate_sprint() -> void:
+	sprint_activated = true
+
+func activate_jump() -> void:
+	jump_activated = true
+
+func activate_double_jump() -> void:
+	double_jump_activated = true

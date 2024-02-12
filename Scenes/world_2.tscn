@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://dr2v4g6gj7376"]
+
+[ext_resource type="Script" path="res://Scrpits/World.gd" id="1_ddx6h"]
+[ext_resource type="PackedScene" uid="uid://c4hph52yf8aof" path="res://Player/player.tscn" id="1_fquuq"]
+[ext_resource type="PackedScene" uid="uid://y1q5ogxvsjcb" path="res://Environments/world_environment.tscn" id="2_8wodg"]
+[ext_resource type="Material" uid="uid://cexyqw8bhidji" path="res://Materials/ground_material.tres" id="2_a5hjs"]
+[ext_resource type="Material" uid="uid://er3pusc1ysyt" path="res://Materials/bricks_material.tres" id="3_7lt6c"]
+[ext_resource type="PackedScene" uid="uid://cylp5llh81ku" path="res://Objects/fireplace.tscn" id="4_lu7ct"]
+[ext_resource type="PackedScene" uid="uid://bul5eq425kpxw" path="res://Objects/Crate.tscn" id="5_q0bbu"]
+[ext_resource type="PackedScene" uid="uid://cl7kwwwylfjjr" path="res://Modules/door.tscn" id="6_3rviy"]
+[ext_resource type="PackedScene" uid="uid://bqjol7rmd7le4" path="res://Objects/lever.tscn" id="7_olqpg"]
+
+[node name="World 2" type="Node3D"]
+script = ExtResource("1_ddx6h")
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("2_8wodg")]
+
+[node name="Player" parent="." instance=ExtResource("1_fquuq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91038, 1, 0)
+
+[node name="Room 1" type="Node3D" parent="."]
+
+[node name="Room" type="Node3D" parent="Room 1"]
+
+[node name="Floor" type="CSGBox3D" parent="Room 1/Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(12, 1, 12)
+material = ExtResource("2_a5hjs")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Room 1/Room"]
+use_collision = true
+
+[node name="Walls" type="CSGBox3D" parent="Room 1/Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+use_collision = true
+size = Vector3(12, 6, 12)
+material = ExtResource("3_7lt6c")
+
+[node name="Walls sub" type="CSGBox3D" parent="Room 1/Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+operation = 2
+use_collision = true
+size = Vector3(11, 5.5, 11)
+material = ExtResource("3_7lt6c")
+
+[node name="Door hole" type="CSGCylinder3D" parent="Room 1/Room/CSGCombiner3D"]
+transform = Transform3D(-1.2763e-07, 2.56313, 1.65809e-15, -2.68993, -1.03216e-07, 1.1244, 1.13566, 4.35768e-08, 2.66326, -5.515, 1.45323, -0.324229)
+operation = 2
+radius = 0.547141
+height = 0.63175
+sides = 9
+material = ExtResource("3_7lt6c")
+
+[node name="Objects" type="Node3D" parent="Room 1"]
+
+[node name="fireplace" parent="Room 1/Objects" instance=ExtResource("4_lu7ct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0381, 0, 0)
+aflame = true
+
+[node name="Crate" parent="Room 1/Objects" instance=ExtResource("5_q0bbu")]
+transform = Transform3D(0.992715, 0, 0.120484, 0, 1, 0, -0.120484, 0, 0.992715, 2.94324, 0.561533, -3.91044)
+
+[node name="Crate2" parent="Room 1/Objects" instance=ExtResource("5_q0bbu")]
+transform = Transform3D(0.864205, 0, 0.503141, 0, 1, 0, -0.503141, 0, 0.864205, 3.77731, 0.561533, -2.87135)
+
+[node name="Crate3" parent="Room 1/Objects" instance=ExtResource("5_q0bbu")]
+transform = Transform3D(0.977145, 0, 0.21257, 0, 1, 0, -0.21257, 0, 0.977145, 3.52854, 1.57103, -3.59679)
+
+[node name="Door" parent="Room 1/Objects" instance=ExtResource("6_3rviy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89194, 1.49832, -0.380709)
+
+[node name="Lever" parent="Room 1/Objects" instance=ExtResource("7_olqpg")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.90004, 1.53909, -5.58509)
+
+[connection signal="interacted" from="Room 1/Objects/fireplace" to="Room 1/Objects/fireplace" method="_on_interacted"]
+[connection signal="interacted" from="Room 1/Objects/Lever" to="Room 1/Objects/Door" method="_on_lever_interacted"]
