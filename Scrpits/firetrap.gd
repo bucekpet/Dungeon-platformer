@@ -40,7 +40,7 @@ func spawn_all_fireballs() -> void:
 	for spawn in spawns:
 		if spawns[spawn] == true:
 			var direction := global_position.direction_to(target.global_position).normalized()
-			spawn_fireball(spawn.global_position + direction * 0.1, direction)
+			spawn_fireball(spawn.global_position + direction * 0.2, direction)
 	
 
 func _on_spawn_timer_timeout() -> void:

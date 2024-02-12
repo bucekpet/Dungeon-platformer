@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dr2v4g6gj7376"]
+[gd_scene load_steps=15 format=3 uid="uid://dr2v4g6gj7376"]
 
 [ext_resource type="Script" path="res://Scrpits/World.gd" id="1_ddx6h"]
 [ext_resource type="PackedScene" uid="uid://c4hph52yf8aof" path="res://Player/player.tscn" id="1_fquuq"]
@@ -9,6 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://bul5eq425kpxw" path="res://Objects/Crate.tscn" id="5_q0bbu"]
 [ext_resource type="PackedScene" uid="uid://cl7kwwwylfjjr" path="res://Modules/door.tscn" id="6_3rviy"]
 [ext_resource type="PackedScene" uid="uid://bqjol7rmd7le4" path="res://Objects/lever.tscn" id="7_olqpg"]
+[ext_resource type="PackedScene" uid="uid://cew6o18i1dc" path="res://Modules/hallway.tscn" id="10_fbwcb"]
+[ext_resource type="PackedScene" uid="uid://cv6ngomq2nqpp" path="res://Objects/torch.tscn" id="11_i8cfc"]
+[ext_resource type="PackedScene" uid="uid://1xnksxqdcund" path="res://Objects/spikes.tscn" id="12_sy6hs"]
+[ext_resource type="PackedScene" uid="uid://cul3bau05txky" path="res://Objects/firetrap.tscn" id="13_3vjlk"]
+[ext_resource type="PackedScene" uid="uid://wrc6u8j757ge" path="res://Objects/sprint_scroll.tscn" id="14_jqys5"]
 
 [node name="World 2" type="Node3D"]
 script = ExtResource("1_ddx6h")
@@ -16,7 +21,10 @@ script = ExtResource("1_ddx6h")
 [node name="WorldEnvironment" parent="." instance=ExtResource("2_8wodg")]
 
 [node name="Player" parent="." instance=ExtResource("1_fquuq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91038, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5822, 1, 0)
+recovery_rate = 100.0
+in_air_recovery_rate = 30.0
+sprint_cost = 50.0
 
 [node name="Room 1" type="Node3D" parent="."]
 
@@ -45,7 +53,7 @@ size = Vector3(11, 5.5, 11)
 material = ExtResource("3_7lt6c")
 
 [node name="Door hole" type="CSGCylinder3D" parent="Room 1/Room/CSGCombiner3D"]
-transform = Transform3D(-1.2763e-07, 2.56313, 1.65809e-15, -2.68993, -1.03216e-07, 1.1244, 1.13566, 4.35768e-08, 2.66326, -5.515, 1.45323, -0.324229)
+transform = Transform3D(-1.2763e-07, 2.56313, 1.65809e-15, -2.68993, -1.03216e-07, 1.1244, 1.13566, 4.35768e-08, 2.66326, -5.515, 1.45323, -0.0306977)
 operation = 2
 radius = 0.547141
 height = 0.63175
@@ -68,10 +76,209 @@ transform = Transform3D(0.864205, 0, 0.503141, 0, 1, 0, -0.503141, 0, 0.864205, 
 transform = Transform3D(0.977145, 0, 0.21257, 0, 1, 0, -0.21257, 0, 0.977145, 3.52854, 1.57103, -3.59679)
 
 [node name="Door" parent="Room 1/Objects" instance=ExtResource("6_3rviy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89194, 1.49832, -0.380709)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89194, 1.49832, -0.0871777)
 
 [node name="Lever" parent="Room 1/Objects" instance=ExtResource("7_olqpg")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.90004, 1.53909, -5.58509)
 
-[connection signal="interacted" from="Room 1/Objects/fireplace" to="Room 1/Objects/fireplace" method="_on_interacted"]
+[node name="Hallway 1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4164, 0, 0)
+
+[node name="Hallway" parent="Hallway 1" instance=ExtResource("10_fbwcb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Objects" type="Node3D" parent="Hallway 1"]
+
+[node name="Torches" type="Node3D" parent="Hallway 1/Objects"]
+
+[node name="torch" parent="Hallway 1/Objects/Torches" instance=ExtResource("11_i8cfc")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 5.56075, 2.35599, 5.74997)
+
+[node name="torch2" parent="Hallway 1/Objects/Torches" instance=ExtResource("11_i8cfc")]
+transform = Transform3D(6.55671e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, 6.55671e-08, 5.56075, 2.35599, -5.72446)
+
+[node name="torch3" parent="Hallway 1/Objects/Torches" instance=ExtResource("11_i8cfc")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -1.85078, 2.35599, 5.74997)
+
+[node name="torch4" parent="Hallway 1/Objects/Torches" instance=ExtResource("11_i8cfc")]
+transform = Transform3D(6.55671e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, 6.55671e-08, -1.85078, 2.35599, -5.72446)
+
+[node name="torch5" parent="Hallway 1/Objects/Torches" instance=ExtResource("11_i8cfc")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -7.80549, 2.35599, 5.74997)
+
+[node name="torch6" parent="Hallway 1/Objects/Torches" instance=ExtResource("11_i8cfc")]
+transform = Transform3D(6.55671e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, 6.55671e-08, -7.80549, 2.35599, -5.72446)
+
+[node name="Hazards" type="Node3D" parent="Hallway 1/Objects"]
+
+[node name="spikes" parent="Hallway 1/Objects/Hazards" instance=ExtResource("12_sy6hs")]
+transform = Transform3D(0.400303, 0, 0, 0, 0.458074, 0, 0, 0, 0.366846, 4.40259, 0, 0)
+up_time = 0.5
+speed_scale = 2.0
+
+[node name="spikes2" parent="Hallway 1/Objects/Hazards" instance=ExtResource("12_sy6hs")]
+transform = Transform3D(0.400303, 0, 0, 0, 0.458074, 0, 0, 0, 0.366846, 2.00052, 0, 0)
+delay = 0.5
+up_time = 0.5
+speed_scale = 2.0
+
+[node name="spikes3" parent="Hallway 1/Objects/Hazards" instance=ExtResource("12_sy6hs")]
+transform = Transform3D(0.400303, 0, 0, 0, 0.458074, 0, 0, 0, 0.366846, -0.223503, 0, 0)
+delay = 1.0
+up_time = 0.5
+speed_scale = 2.0
+
+[node name="spikes4" parent="Hallway 1/Objects/Hazards" instance=ExtResource("12_sy6hs")]
+transform = Transform3D(0.400303, 0, 0, 0, 0.458074, 0, 0, 0, 0.366846, -2.46391, 0, 0)
+delay = 1.5
+up_time = 0.5
+speed_scale = 2.0
+
+[node name="spikes5" parent="Hallway 1/Objects/Hazards" instance=ExtResource("12_sy6hs")]
+transform = Transform3D(0.400303, 0, 0, 0, 0.458074, 0, 0, 0, 0.366846, -4.75948, 0, 0)
+delay = 2.0
+up_time = 0.5
+speed_scale = 2.0
+
+[node name="spikes6" parent="Hallway 1/Objects/Hazards" instance=ExtResource("12_sy6hs")]
+transform = Transform3D(0.400303, 0, 0, 0, 0.458074, 0, 0, 0, 0.366846, -7.04312, 0, 0)
+delay = 2.5
+up_time = 0.5
+speed_scale = 2.0
+
+[node name="firetrap" parent="Hallway 1/Objects/Hazards" instance=ExtResource("13_3vjlk")]
+transform = Transform3D(1.44248e-08, 2.88495e-08, -0.33, 1.26105e-15, -0.33, -2.88495e-08, -0.33, 0, -1.44248e-08, 1.38598, 5.25413, -3.36956)
+spawn_time = 1.5
+
+[node name="firetrap2" parent="Hallway 1/Objects/Hazards" instance=ExtResource("13_3vjlk")]
+transform = Transform3D(1.44248e-08, 2.88495e-08, -0.33, 1.26105e-15, -0.33, -2.88495e-08, -0.33, 0, -1.44248e-08, 1.38598, 5.25413, 0.960659)
+spawn_time = 1.5
+
+[node name="firetrap3" parent="Hallway 1/Objects/Hazards" instance=ExtResource("13_3vjlk")]
+transform = Transform3D(1.44248e-08, 2.88495e-08, -0.33, 1.26105e-15, -0.33, -2.88495e-08, -0.33, 0, -1.44248e-08, 1.38598, 5.25413, 5.38297)
+spawn_time = 1.5
+
+[node name="firetrap4" parent="Hallway 1/Objects/Hazards" instance=ExtResource("13_3vjlk")]
+transform = Transform3D(1.44248e-08, 2.88495e-08, -0.33, 1.26105e-15, -0.33, -2.88495e-08, -0.33, 0, -1.44248e-08, -3.67633, 5.25413, -3.36956)
+delay = 0.75
+spawn_time = 1.5
+
+[node name="firetrap5" parent="Hallway 1/Objects/Hazards" instance=ExtResource("13_3vjlk")]
+transform = Transform3D(1.44248e-08, 2.88495e-08, -0.33, 1.26105e-15, -0.33, -2.88495e-08, -0.33, 0, -1.44248e-08, -3.67633, 5.25413, 0.960659)
+delay = 0.75
+spawn_time = 1.5
+
+[node name="firetrap6" parent="Hallway 1/Objects/Hazards" instance=ExtResource("13_3vjlk")]
+transform = Transform3D(1.44248e-08, 2.88495e-08, -0.33, 1.26105e-15, -0.33, -2.88495e-08, -0.33, 0, -1.44248e-08, -3.67633, 5.25413, 5.38297)
+delay = 0.75
+spawn_time = 1.5
+
+[node name="Door" parent="Hallway 1/Objects" instance=ExtResource("6_3rviy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4483, 1.45583, 0.133471)
+
+[node name="Lever" parent="Hallway 1/Objects" instance=ExtResource("7_olqpg")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.81567, 1.79284, -5.58316)
+
+[node name="Room 2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.334, 0, 0)
+
+[node name="Room" type="Node3D" parent="Room 2"]
+
+[node name="Floor" type="CSGBox3D" parent="Room 2/Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(12, 1, 12)
+material = ExtResource("2_a5hjs")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Room 2/Room"]
+use_collision = true
+
+[node name="Walls" type="CSGBox3D" parent="Room 2/Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+use_collision = true
+size = Vector3(12, 6, 12)
+material = ExtResource("3_7lt6c")
+
+[node name="Walls sub" type="CSGBox3D" parent="Room 2/Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+operation = 2
+use_collision = true
+size = Vector3(11, 5.5, 11)
+material = ExtResource("3_7lt6c")
+
+[node name="Door hole" type="CSGCylinder3D" parent="Room 2/Room/CSGCombiner3D"]
+transform = Transform3D(-1.2763e-07, 2.56313, 1.65809e-15, -2.68993, -1.03216e-07, 1.1244, 1.13566, 4.35768e-08, 2.66326, -5.515, 1.45323, 0.0813701)
+operation = 2
+radius = 0.547141
+height = 0.63175
+sides = 9
+material = ExtResource("3_7lt6c")
+
+[node name="Door hole2" type="CSGCylinder3D" parent="Room 2/Room/CSGCombiner3D"]
+transform = Transform3D(-1.2763e-07, 2.56313, 1.65809e-15, -2.68993, -1.03216e-07, 1.1244, 1.13566, 4.35768e-08, 2.66326, 5.61059, 1.45323, 0.0813701)
+operation = 2
+radius = 0.547141
+height = 0.63175
+sides = 9
+material = ExtResource("3_7lt6c")
+
+[node name="Door hole3" type="CSGCylinder3D" parent="Room 2/Room/CSGCombiner3D"]
+transform = Transform3D(-1.13566, -1.55615e-07, -2.66326, -2.68993, -1.03216e-07, 1.1244, -9.71051e-08, 2.56313, -1.49925e-07, 2.92254, 1.45323, -5.69725)
+operation = 2
+radius = 0.547141
+height = 0.63175
+sides = 9
+material = ExtResource("3_7lt6c")
+
+[node name="Door hole4" type="CSGCylinder3D" parent="Room 2/Room/CSGCombiner3D"]
+transform = Transform3D(-1.13566, -1.55615e-07, -2.66326, -2.68993, -1.03216e-07, 1.1244, -9.71051e-08, 2.56313, -1.49925e-07, -3.14517, 1.45323, -5.69725)
+operation = 2
+radius = 0.547141
+height = 0.63175
+sides = 9
+material = ExtResource("3_7lt6c")
+
+[node name="Objects" type="Node3D" parent="Room 2"]
+
+[node name="fireplace" parent="Room 2/Objects" instance=ExtResource("4_lu7ct")]
+
+[node name="Door" parent="Room 2/Objects" instance=ExtResource("6_3rviy")]
+transform = Transform3D(-2.07394e-08, 0, -1, 0, 1, 0, 0.474463, 0, -4.37114e-08, -3.20333, 1.45805, -5.76366)
+
+[node name="Hallway 2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.334, 0, -17.9315)
+
+[node name="Hallway" type="Node3D" parent="Hallway 2"]
+
+[node name="Floor" type="CSGBox3D" parent="Hallway 2/Hallway"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(12, 1, 24)
+material = ExtResource("2_a5hjs")
+
+[node name="Walls3" type="CSGBox3D" parent="Hallway 2/Hallway"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0863953, 3, 2.02319)
+size = Vector3(1.18475, 6, 19.9536)
+material = ExtResource("3_7lt6c")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Hallway 2/Hallway"]
+use_collision = true
+
+[node name="Walls" type="CSGBox3D" parent="Hallway 2/Hallway/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+size = Vector3(12, 6, 24)
+material = ExtResource("3_7lt6c")
+
+[node name="Walls2" type="CSGBox3D" parent="Hallway 2/Hallway/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0.348145)
+operation = 2
+size = Vector3(11, 5.5, 23.8037)
+material = ExtResource("3_7lt6c")
+
+[node name="Objects" type="Node3D" parent="Hallway 2"]
+
+[node name="sprint scroll" parent="Hallway 2/Objects" instance=ExtResource("14_jqys5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.10126, 1.54023, -9.38713)
+
 [connection signal="interacted" from="Room 1/Objects/Lever" to="Room 1/Objects/Door" method="_on_lever_interacted"]
+[connection signal="interacted" from="Hallway 1/Objects/Lever" to="Hallway 1/Objects/Door" method="_on_lever_interacted"]

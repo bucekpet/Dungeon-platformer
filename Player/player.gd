@@ -94,6 +94,9 @@ func _physics_process(delta: float) -> void:
 	if jump_activated:			handle_jump(input_jump, delta)
 	if double_jump_activated: 	handle_double_jump(input_jump)
 	
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	
 	move_and_slide()
 	
 func rotate_head(mouse_axis: Vector2) -> void:
@@ -173,8 +176,7 @@ func handle_jump(input_jump: bool, delta: float) -> void:
 		can_double_jump = false
 	elif can_jump and coyote_timer.is_stopped():
 		coyote_timer.start()
-	else:
-		velocity.y -= gravity * delta
+	
 	
 	## Jump
 	if input_jump and can_jump and stamina > 0:

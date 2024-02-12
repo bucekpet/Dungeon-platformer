@@ -197,6 +197,7 @@ _data = {
 }
 
 [node name="Fireball" type="Area3D"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_wqbev")

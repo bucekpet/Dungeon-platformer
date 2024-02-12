@@ -9,8 +9,8 @@ func _input(event):
 		if event.keycode == KEY_TAB:
 			Checkpoints.reset_checkpoint()
 			get_tree().reload_current_scene()
-
-func _ready() -> void:
-	player = get_tree().get_first_node_in_group('Player')
-	
-	player.position = Checkpoints.checkpoint
+			
+#func _ready() -> void:
+	#player = get_tree().get_first_node_in_group('Player')
+	#
+	#player.position = Checkpoints.checkpoint
