@@ -20,6 +20,8 @@ script = ExtResource("1_e5b6p")
 
 [node name="Player" parent="." instance=ExtResource("2_hxbpa")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 1, 0)
+sprint_activated = true
+jump_activated = true
 double_jump_activated = true
 recovery_rate = 80.0
 in_air_recovery_rate = 20.0
@@ -948,12 +950,8 @@ transform = Transform3D(0.616157, 0, 0.787624, 0, 1, 0, -0.787624, 0, 0.616157, 
 [node name="Crate2" parent="Room 6/Objects" instance=ExtResource("7_jj0kv")]
 transform = Transform3D(0.765899, 0, 0.642961, 0, 1, 0, -0.642961, 0, 0.765899, -3.71127, 1.56832, 3.80954)
 
-[connection signal="interacted" from="Room 1/Objects/fireplace" to="Room 1/Objects/fireplace" method="_on_interacted"]
 [connection signal="interacted" from="Room 1/Objects/Lever" to="Room 1/Objects/Door" method="_on_lever_interacted"]
 [connection signal="interacted" from="Hallway 1/Objects/Lever" to="Hallway 1/Objects/Door" method="_on_lever_interacted"]
-[connection signal="interacted" from="Room 2/Objects/fireplace2" to="Room 2/Objects/fireplace2" method="_on_interacted"]
 [connection signal="interacted" from="Room 3/Objects/Lever" to="Room 2/Objects/Door" method="_on_lever_interacted"]
-[connection signal="interacted" from="Room 4/Objects/fireplace" to="Room 4/Objects/fireplace" method="_on_interacted"]
 [connection signal="interacted" from="Room 5/Objects/Lever" to="Room 4/Objects/Door" method="_on_lever_interacted"]
 [connection signal="interacted" from="Hallway 4/Objects/Lever" to="Hallway 4/Objects/Door" method="_on_lever_interacted"]
-[connection signal="interacted" from="Room 6/Objects/fireplace" to="Room 6/Objects/fireplace" method="_on_interacted"]

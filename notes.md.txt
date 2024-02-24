@@ -1,0 +1,4 @@
+[ ] - slide from sprint
+[ ] - add UI overlay when sliding/sprinting (smudges at the edge of screen)
+[ ] - jetpack
+[ ] - component based abilities
