@@ -1,55 +1,45 @@
-[gd_scene load_steps=11 format=3 uid="uid://08ppxnomymed"]
+[gd_scene load_steps=7 format=3 uid="uid://08ppxnomymed"]
 
-[ext_resource type="PackedScene" uid="uid://lra67ejmcymt" path="res://Modules/room.tscn" id="1_2wixa"]
 [ext_resource type="Script" path="res://Scrpits/World.gd" id="1_prc8q"]
 [ext_resource type="PackedScene" uid="uid://cylp5llh81ku" path="res://Objects/fireplace.tscn" id="2_7yxmy"]
+[ext_resource type="Material" uid="uid://er3pusc1ysyt" path="res://Materials/bricks_material.tres" id="5_hwepr"]
 [ext_resource type="PackedScene" uid="uid://y1q5ogxvsjcb" path="res://Environments/world_environment.tscn" id="5_ts245"]
-[ext_resource type="PackedScene" uid="uid://cew6o18i1dc" path="res://Modules/hallway.tscn" id="6_bdjrr"]
-[ext_resource type="PackedScene" uid="uid://cv6ngomq2nqpp" path="res://Objects/torch.tscn" id="7_g5uug"]
-[ext_resource type="PackedScene" uid="uid://wrc6u8j757ge" path="res://Objects/sprint_scroll.tscn" id="8_rknmb"]
-[ext_resource type="PackedScene" uid="uid://dq0kbw4yraxhr" path="res://Objects/jump_scroll.tscn" id="9_ube2k"]
+[ext_resource type="PackedScene" uid="uid://c23uxnbjqpnvh" path="res://Objects/refill_orb.tscn" id="6_652ia"]
 [ext_resource type="PackedScene" uid="uid://c4hph52yf8aof" path="res://Player/player.tscn" id="9_uma4r"]
-[ext_resource type="PackedScene" uid="uid://beqhg2w4p5ht4" path="res://Objects/double_jump_scroll.tscn" id="10_7vh36"]
 
 [node name="Test world" type="Node3D"]
 script = ExtResource("1_prc8q")
 
 [node name="Player" parent="." instance=ExtResource("9_uma4r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64736, 1, 0)
-
-[node name="Room" parent="." instance=ExtResource("1_2wixa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8404, 2, 0)
+sprint_activated = true
+jump_activated = true
+double_jump_activated = true
+speed = 10.0
 
 [node name="fireplace" parent="." instance=ExtResource("2_7yxmy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.526394, 0)
 aflame = true
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("5_ts245")]
 
-[node name="Hallway" parent="." instance=ExtResource("6_bdjrr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17.9471, 0, 0)
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.553409, -0.68457, -0.0991821)
+use_collision = true
+size = Vector3(10.7228, 2.36914, 11.5751)
+material = ExtResource("5_hwepr")
 
-[node name="torch" parent="." instance=ExtResource("7_g5uug")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -12.2529, 2.21688, 5.75565)
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.9667, -0.68457, -0.0991821)
+use_collision = true
+size = Vector3(10.7228, 2.36914, 11.5751)
+material = ExtResource("5_hwepr")
 
-[node name="torch2" parent="." instance=ExtResource("7_g5uug")]
-transform = Transform3D(6.55671e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, 6.55671e-08, -12.2529, 2.21688, -5.75727)
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.9667, -0.68457, 27.2759)
+use_collision = true
+size = Vector3(10.7228, 2.36914, 11.5751)
+material = ExtResource("5_hwepr")
 
-[node name="torch3" parent="." instance=ExtResource("7_g5uug")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -18.9844, 2.21688, 5.75565)
-
-[node name="torch4" parent="." instance=ExtResource("7_g5uug")]
-transform = Transform3D(6.55671e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, 6.55671e-08, -18.9844, 2.21688, -5.75727)
-
-[node name="torch5" parent="." instance=ExtResource("7_g5uug")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -25.8042, 2.21688, 5.75565)
-
-[node name="torch6" parent="." instance=ExtResource("7_g5uug")]
-transform = Transform3D(6.55671e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, 6.55671e-08, -25.8042, 2.21688, -5.75727)
-
-[node name="sprint scroll" parent="." instance=ExtResource("8_rknmb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4557, 1.40854, 0)
-
-[node name="jump scroll" parent="." instance=ExtResource("9_ube2k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6715, 1.38619, 0)
-
-[node name="double jump scroll" parent="." instance=ExtResource("10_7vh36")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0674, 1.37728, 0)
+[node name="Refill orb" parent="." instance=ExtResource("6_652ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.7851, 2.34651, -1.36628)
