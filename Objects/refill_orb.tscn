@@ -58,7 +58,7 @@ radius = 0.943055
 script = ExtResource("1_gk338")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2, 0, 3.01992e-07, 0, 2, 0, -3.01992e-07, 0, -2, 0, 0, 0)
+transform = Transform3D(-2, 0, 5.07036e-06, 0, 2, 0, -5.07036e-06, 0, -2, 0, 0, 0)
 mesh = SubResource("QuadMesh_a5ixh")
 surface_material_override/0 = SubResource("StandardMaterial3D_3ifr3")
 

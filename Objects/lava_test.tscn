@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://6juudl0sudje"]
+
+[ext_resource type="Shader" uid="uid://bsc48kspnwkma" path="res://Shaders/lava.tres" id="1_ese1o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dcejs"]
+render_priority = 0
+shader = ExtResource("1_ese1o")
+shader_parameter/ColorParameter = Color(0.529412, 0.058824, 0, 1)
+shader_parameter/Vector4Parameter = null
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5utc0"]
+material = SubResource("ShaderMaterial_dcejs")
+size = Vector2(10, 10)
+subdivide_width = 20
+subdivide_depth = 20
+
+[node name="Lava" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_5utc0")
