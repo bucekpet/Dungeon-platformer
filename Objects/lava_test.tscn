@@ -5,8 +5,6 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dcejs"]
 render_priority = 0
 shader = ExtResource("1_ese1o")
-shader_parameter/ColorParameter = Color(0.529412, 0.058824, 0, 1)
-shader_parameter/Vector4Parameter = null
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5utc0"]
 material = SubResource("ShaderMaterial_dcejs")
