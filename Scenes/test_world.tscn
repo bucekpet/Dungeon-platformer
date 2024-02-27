@@ -28,5 +28,52 @@ use_collision = true
 size = Vector3(10.7228, 2.36914, 11.5751)
 material = ExtResource("5_hwepr")
 
-[node name="Lava" parent="." instance=ExtResource("6_54x72")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.418)
+[node name="Lava" type="Node" parent="."]
+
+[node name="Lava 1" parent="Lava" instance=ExtResource("6_54x72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.624, 0, 12.703)
+
+[node name="Lava2" parent="Lava" instance=ExtResource("6_54x72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.624, 0, 12.703)
+
+[node name="Lava3" parent="Lava" instance=ExtResource("6_54x72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.624, 0, 2.70295)
+
+[node name="Lava4" parent="Lava" instance=ExtResource("6_54x72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.624, 0, 2.70295)
+
+[node name="Lava5" parent="Lava" instance=ExtResource("6_54x72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.376, 0, 12.703)
+
+[node name="Lava6" parent="Lava" instance=ExtResource("6_54x72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.376, 0, 12.703)
+
+[node name="Lava7" parent="Lava" instance=ExtResource("6_54x72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.376, 0, 2.70295)
+
+[node name="Lava8" parent="Lava" instance=ExtResource("6_54x72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.376, 0, 2.70295)
+
+[node name="Lava9" parent="Lava" instance=ExtResource("6_54x72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.376, 0, -7.29705)
+
+[node name="Lava10" parent="Lava" instance=ExtResource("6_54x72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.376, 0, -7.29705)
+
+[node name="Lava11" parent="Lava" instance=ExtResource("6_54x72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.376, 0, -17.297)
+
+[node name="Lava12" parent="Lava" instance=ExtResource("6_54x72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.376, 0, -17.297)
+
+[node name="Lava13" parent="Lava" instance=ExtResource("6_54x72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.624, 0, -7.29705)
+
+[node name="Lava14" parent="Lava" instance=ExtResource("6_54x72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.624, 0, -7.29705)
+
+[node name="Lava15" parent="Lava" instance=ExtResource("6_54x72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.624, 0, -17.297)
+
+[node name="Lava16" parent="Lava" instance=ExtResource("6_54x72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.624, 0, -17.297)

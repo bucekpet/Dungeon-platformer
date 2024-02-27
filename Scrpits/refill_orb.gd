@@ -6,4 +6,5 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 
 func _process(delta: float) -> void:
-	look_at(player.position, Vector3(0, 1, 0), false)
+	var theta := atan2(position.x - player.position.x, position.z - player.position.z)
+	set_rotation(Vector3(0, theta, 0))
