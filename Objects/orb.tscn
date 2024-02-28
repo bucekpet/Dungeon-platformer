@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://87ib6muvh761"]
+
+[ext_resource type="Shader" uid="uid://pl1ejs8ajmxn" path="res://Shaders/orb.tres" id="1_d0gf5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vk8yr"]
+render_priority = 0
+shader = ExtResource("1_d0gf5")
+shader_parameter/Vertex_displace_amount = 1.0
+shader_parameter/Emission_strength = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_yvhh0"]
+material = SubResource("ShaderMaterial_vk8yr")
+
+[node name="Orb" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_yvhh0")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0, 0.835294, 0, 1)
