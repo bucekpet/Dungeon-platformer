@@ -21,4 +21,4 @@ speed = 10.0
 [node name="Room" parent="." instance=ExtResource("5_78o8a")]
 
 [node name="Orb" parent="." instance=ExtResource("7_nfge0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.647108, 2.17792, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.647108, 1.68073, 0)
