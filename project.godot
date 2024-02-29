@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dungeon platformer"
-run/main_scene="res://Scenes/test_world.tscn"
+run/main_scene="res://Scenes/world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.png"
 
@@ -28,8 +28,7 @@ Abilities="*res://Global/abilities.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/window_width_override=1280
-window/size/window_height_override=720
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [importer_defaults]
