@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://6juudl0sudje"]
 
-[ext_resource type="Shader" uid="uid://bsc48kspnwkma" path="res://Shaders/lava.tres" id="1_ese1o"]
+[ext_resource type="Shader" uid="uid://bsc48kspnwkma" path="res://Shaders/lava.tres" id="1_l4ybl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dcejs"]
 render_priority = 0
-shader = ExtResource("1_ese1o")
+shader = ExtResource("1_l4ybl")
 shader_parameter/Vertex_displace_amount = 0.37
 shader_parameter/ColorParameter = Color(5, 0, 0, 1)
 shader_parameter/Power = 1.2
