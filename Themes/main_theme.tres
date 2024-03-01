@@ -1,0 +1,44 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://5wwqsw7oadc1"]
+
+[ext_resource type="FontFile" uid="uid://d0ygmldupnas3" path="res://Fonts/Por Siempre Gótica.ttf" id="1_w028k"]
+[ext_resource type="Texture2D" uid="uid://f40gec02scd6" path="res://Textures/bricks/Bricks076B_1K-JPG_Color.jpg" id="2_k1ewl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wy77y"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j0m5t"]
+load_path = "res://.godot/imported/Bricks076B_1K-JPG_Color.jpg-540506f8204c289d3c67da24051b6570.s3tc.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dxlwf"]
+texture = SubResource("CompressedTexture2D_j0m5t")
+region_rect = Rect2(0, 489.211, 508.812, 330.962)
+modulate_color = Color(0.615686, 0.615686, 0.615686, 0.682353)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_27ctk"]
+texture = ExtResource("2_k1ewl")
+region_rect = Rect2(0, 489.211, 508.812, 330.962)
+modulate_color = Color(0.764706, 0.764706, 0.764706, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c2cka"]
+load_path = "res://.godot/imported/Bricks076B_1K-JPG_Color.jpg-540506f8204c289d3c67da24051b6570.s3tc.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_repx3"]
+texture = SubResource("CompressedTexture2D_c2cka")
+region_rect = Rect2(0, 489.211, 508.812, 330.962)
+modulate_color = Color(0.498039, 0.498039, 0.498039, 0.682353)
+
+[resource]
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 12
+Button/font_sizes/font_size = 64
+Button/fonts/font = ExtResource("1_w028k")
+Button/styles/focus = SubResource("StyleBoxEmpty_wy77y")
+Button/styles/hover = SubResource("StyleBoxTexture_dxlwf")
+Button/styles/normal = SubResource("StyleBoxTexture_27ctk")
+Button/styles/pressed = SubResource("StyleBoxTexture_repx3")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 32
+Label/constants/shadow_offset_x = 16
+Label/constants/shadow_offset_y = 8
+Label/constants/shadow_outline_size = 12
+Label/font_sizes/font_size = 192
+Label/fonts/font = ExtResource("1_w028k")
