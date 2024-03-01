@@ -55,7 +55,7 @@ script = ExtResource("1_ic3jj")
 [node name="WorldEnvironment" parent="." instance=ExtResource("1_5p7ts")]
 
 [node name="CameraPivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.964654, 0.263519, 0, -0.263519, 0.964654, 0, 1.64214, 0)
+transform = Transform3D(1, 0, 0, 0, 0.964654, 0.26352, 0, -0.26352, 0.964654, 0, 1.64214, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.60222)
@@ -130,31 +130,31 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -144.0
-offset_top = 22.0
-offset_right = 144.0
-offset_bottom = 318.0
+offset_left = -886.0
+offset_top = 11.0
+offset_right = -598.0
+offset_bottom = 448.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("9_5o5wa")
-theme_override_constants/separation = 25
+theme_override_constants/separation = 55
 
 [node name="PlayButton" type="Button" parent="Menu UI/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("9_5o5wa")
-text = "PLAY"
+text = "Play"
 
 [node name="OptionsButton" type="Button" parent="Menu UI/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("9_5o5wa")
-text = "OPTIONS"
+text = "Options"
 
 [node name="ExitButton" type="Button" parent="Menu UI/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("9_5o5wa")
-text = "EXIT"
+text = "Exit"
 
 [node name="Label" type="Label" parent="Menu UI"]
 anchors_preset = 5
@@ -166,7 +166,7 @@ offset_right = 373.5
 offset_bottom = 318.0
 grow_horizontal = 2
 theme = ExtResource("9_5o5wa")
-text = "DUNGEON DASH"
+text = "Dungeon Dash"
 
 [connection signal="interacted" from="Set/Room/Objects/Lever" to="Set/Room/Objects/Door" method="_on_lever_interacted"]
 [connection signal="pressed" from="Menu UI/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

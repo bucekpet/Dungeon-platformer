@@ -21,7 +21,7 @@
 script = ExtResource("1_e5b6p")
 
 [node name="Player" parent="." instance=ExtResource("2_hxbpa")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.1056, 1.31843, -0.108407)
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -0.774122, 1, 2.94188)
 sprint_activated = true
 jump_activated = true
 double_jump_activated = true
