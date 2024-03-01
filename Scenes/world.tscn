@@ -19,7 +19,7 @@
 script = ExtResource("1_e5b6p")
 
 [node name="Player" parent="." instance=ExtResource("2_hxbpa")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 1, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.67059, 1, 0)
 sprint_activated = true
 jump_activated = true
 double_jump_activated = true
@@ -67,7 +67,6 @@ material = ExtResource("6_r170b")
 [node name="Objects" type="Node3D" parent="Room 1"]
 
 [node name="fireplace" parent="Room 1/Objects" instance=ExtResource("8_03fv0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0381, 0, 0)
 aflame = true
 
 [node name="Crate" parent="Room 1/Objects" instance=ExtResource("7_jj0kv")]

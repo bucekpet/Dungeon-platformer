@@ -1,0 +1,174 @@
+[gd_scene load_steps=13 format=3 uid="uid://c1br42f1ofj21"]
+
+[ext_resource type="PackedScene" uid="uid://y1q5ogxvsjcb" path="res://Environments/world_environment.tscn" id="1_5p7ts"]
+[ext_resource type="Script" path="res://Scrpits/main_menu.gd" id="1_ic3jj"]
+[ext_resource type="Material" uid="uid://cexyqw8bhidji" path="res://Materials/ground_material.tres" id="2_lcmos"]
+[ext_resource type="PackedScene" uid="uid://cl7kwwwylfjjr" path="res://Modules/door.tscn" id="3_i72hn"]
+[ext_resource type="Material" uid="uid://er3pusc1ysyt" path="res://Materials/bricks_material.tres" id="3_sblsi"]
+[ext_resource type="PackedScene" uid="uid://cylp5llh81ku" path="res://Objects/fireplace.tscn" id="4_aeavk"]
+[ext_resource type="PackedScene" uid="uid://bul5eq425kpxw" path="res://Objects/Crate.tscn" id="5_tj12x"]
+[ext_resource type="PackedScene" uid="uid://bqjol7rmd7le4" path="res://Objects/lever.tscn" id="7_r68ot"]
+[ext_resource type="Theme" uid="uid://5wwqsw7oadc1" path="res://Themes/main_theme.tres" id="9_5o5wa"]
+
+[sub_resource type="Animation" id="Animation_q4xeh"]
+resource_name = "Camera rotation"
+length = 40.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 40),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.266669, 0, 0), Vector3(-0.267035, 6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_83hhp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.266669, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m6dfo"]
+_data = {
+"Camera rotation": SubResource("Animation_q4xeh"),
+"RESET": SubResource("Animation_83hhp")
+}
+
+[node name="Main Menu" type="Node3D"]
+script = ExtResource("1_ic3jj")
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_5p7ts")]
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.964654, 0.263519, 0, -0.263519, 0.964654, 0, 1.64214, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.60222)
+
+[node name="Set" type="Node3D" parent="."]
+
+[node name="Room" type="Node3D" parent="Set"]
+
+[node name="Room" type="Node3D" parent="Set/Room"]
+
+[node name="Floor" type="CSGBox3D" parent="Set/Room/Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(12, 1, 12)
+material = ExtResource("2_lcmos")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Set/Room/Room"]
+use_collision = true
+
+[node name="Walls" type="CSGBox3D" parent="Set/Room/Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+use_collision = true
+size = Vector3(12, 6, 12)
+material = ExtResource("3_sblsi")
+
+[node name="Walls sub" type="CSGBox3D" parent="Set/Room/Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+operation = 2
+use_collision = true
+size = Vector3(11, 5.5, 11)
+material = ExtResource("3_sblsi")
+
+[node name="Door hole" type="CSGCylinder3D" parent="Set/Room/Room/CSGCombiner3D"]
+transform = Transform3D(-1.2763e-07, 2.56313, 1.65809e-15, -2.68993, -1.03216e-07, 1.1244, 1.13566, 4.35768e-08, 2.66326, -5.515, 1.45323, -0.324229)
+operation = 2
+radius = 0.547141
+height = 0.63175
+sides = 9
+material = ExtResource("3_sblsi")
+
+[node name="Objects" type="Node3D" parent="Set/Room"]
+
+[node name="fireplace" parent="Set/Room/Objects" instance=ExtResource("4_aeavk")]
+aflame = true
+
+[node name="Crate" parent="Set/Room/Objects" instance=ExtResource("5_tj12x")]
+transform = Transform3D(0.992715, 0, 0.120484, 0, 1, 0, -0.120484, 0, 0.992715, 2.94324, 0.561533, -3.91044)
+
+[node name="Crate2" parent="Set/Room/Objects" instance=ExtResource("5_tj12x")]
+transform = Transform3D(0.864205, 0, 0.503141, 0, 1, 0, -0.503141, 0, 0.864205, 3.77731, 0.561533, -2.87135)
+
+[node name="Crate3" parent="Set/Room/Objects" instance=ExtResource("5_tj12x")]
+transform = Transform3D(0.977145, 0, 0.21257, 0, 1, 0, -0.21257, 0, 0.977145, 3.52854, 1.57103, -3.59679)
+
+[node name="Door" parent="Set/Room/Objects" instance=ExtResource("3_i72hn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89194, 1.49832, -0.380709)
+
+[node name="Lever" parent="Set/Room/Objects" instance=ExtResource("7_r68ot")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.90004, 1.53909, -5.58509)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m6dfo")
+}
+autoplay = "Camera rotation"
+
+[node name="Menu UI" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = 22.0
+offset_right = 144.0
+offset_bottom = 318.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("9_5o5wa")
+theme_override_constants/separation = 25
+
+[node name="PlayButton" type="Button" parent="Menu UI/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_5o5wa")
+text = "PLAY"
+
+[node name="OptionsButton" type="Button" parent="Menu UI/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_5o5wa")
+text = "OPTIONS"
+
+[node name="ExitButton" type="Button" parent="Menu UI/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_5o5wa")
+text = "EXIT"
+
+[node name="Label" type="Label" parent="Menu UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -373.5
+offset_top = 139.0
+offset_right = 373.5
+offset_bottom = 318.0
+grow_horizontal = 2
+theme = ExtResource("9_5o5wa")
+text = "DUNGEON DASH"
+
+[connection signal="interacted" from="Set/Room/Objects/Lever" to="Set/Room/Objects/Door" method="_on_lever_interacted"]
+[connection signal="pressed" from="Menu UI/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Menu UI/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Menu UI/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
