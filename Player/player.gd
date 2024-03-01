@@ -57,6 +57,7 @@ extends CharacterBody3D
 @onready var coyote_timer: Timer = $"Coyote timer"
 @onready var camera_3d = $Head/Camera3D
 @onready var stamina_bar: TextureProgressBar = $"UI/Stamina bar"
+@onready var pause_menu = $"UI/Pause Menu"
 
 var _rotation := Vector2.ZERO
 var speed_multiplier := 1.0
@@ -70,6 +71,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	vertical_angle_limit = deg_to_rad(vertical_angle_limit)
 	coyote_timer.wait_time = coyote_time
+	pause_menu.visible = false
 
 func _input(event: InputEvent) -> void:
 	## Mouse input if mouse is captured
@@ -85,6 +87,8 @@ func _process(delta: float) -> void:
 		stamina_bar.visible = true
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed('pause'):	pause_game()
+	
 	var input_axis = Input.get_vector(input_back_name, input_forward_name, input_left_name, input_right_name)
 	var input_sprint = Input.is_action_pressed(input_sprint_name)
 	var input_jump = Input.is_action_just_pressed(input_jump_name)
@@ -215,3 +219,13 @@ func activate_jump() -> void:
 
 func activate_double_jump() -> void:
 	double_jump_activated = true
+
+func pause_game() -> void:
+	pause_menu.visible = true
+	Engine.time_scale = 0
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func unpause_game() -> void:
+	pause_menu.visible = false
+	Engine.time_scale = 1
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

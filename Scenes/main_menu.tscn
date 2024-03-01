@@ -124,6 +124,18 @@ autoplay = "Camera rotation"
 
 [node name="Menu UI" type="CanvasLayer" parent="."]
 
+[node name="Title" type="Label" parent="Menu UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -481.5
+offset_top = 139.0
+offset_right = 481.5
+offset_bottom = 354.0
+grow_horizontal = 2
+theme = ExtResource("9_5o5wa")
+text = "Dungeon Dash"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu UI"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -155,18 +167,6 @@ text = "Options"
 layout_mode = 2
 theme = ExtResource("9_5o5wa")
 text = "Exit"
-
-[node name="Label" type="Label" parent="Menu UI"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -373.5
-offset_top = 139.0
-offset_right = 373.5
-offset_bottom = 318.0
-grow_horizontal = 2
-theme = ExtResource("9_5o5wa")
-text = "Dungeon Dash"
 
 [connection signal="interacted" from="Set/Room/Objects/Lever" to="Set/Room/Objects/Door" method="_on_lever_interacted"]
 [connection signal="pressed" from="Menu UI/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

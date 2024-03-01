@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4hph52yf8aof"]
+[gd_scene load_steps=9 format=3 uid="uid://c4hph52yf8aof"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_083ff"]
 [ext_resource type="Script" path="res://Scrpits/interact_raycast.gd" id="2_qst3h"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://boq86jdbnme7g" path="res://Textures/progress bar/enemy_health_bar_foreground_000.png" id="4_286db"]
 [ext_resource type="Texture2D" uid="uid://cy221um61x87t" path="res://Textures/progress bar/enemy_health_bar_000.png" id="5_bvv6t"]
 [ext_resource type="Texture2D" uid="uid://dw8tv076ehjtk" path="res://Textures/crosshair001.png" id="6_pcd3i"]
+[ext_resource type="PackedScene" uid="uid://d270u07f4ecyi" path="res://UI/pause_menu.tscn" id="7_qp7qi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i656p"]
 
@@ -13,9 +14,6 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 2
 script = ExtResource("1_083ff")
-sprint_activated = false
-jump_activated = false
-double_jump_activated = false
 jump_height = 12.0
 second_jump_height = 8.0
 
@@ -85,6 +83,8 @@ offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_pcd3i")
+
+[node name="Pause Menu" parent="UI" instance=ExtResource("7_qp7qi")]
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
