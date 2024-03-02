@@ -183,6 +183,10 @@ layout_mode = 2
 theme = ExtResource("9_5o5wa")
 text = "Reset best time"
 
+[node name="ResolutionOptionButton" type="OptionButton" parent="Menu UI/Options Menu"]
+layout_mode = 2
+theme = ExtResource("9_5o5wa")
+
 [connection signal="interacted" from="Set/Room/Objects/Lever" to="Set/Room/Objects/Door" method="_on_lever_interacted"]
 [connection signal="pressed" from="Menu UI/Main menu/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Menu UI/Main menu/OptionsButton" to="." method="_on_options_button_pressed"]
