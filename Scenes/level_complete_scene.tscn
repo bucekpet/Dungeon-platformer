@@ -1,0 +1,174 @@
+[gd_scene load_steps=13 format=3 uid="uid://dgceuarkdqn8g"]
+
+[ext_resource type="Script" path="res://Scrpits/level_complete_scene.gd" id="1_ayn2i"]
+[ext_resource type="PackedScene" uid="uid://y1q5ogxvsjcb" path="res://Environments/world_environment.tscn" id="1_n8gk2"]
+[ext_resource type="Material" uid="uid://cexyqw8bhidji" path="res://Materials/ground_material.tres" id="2_y5ddd"]
+[ext_resource type="Material" uid="uid://er3pusc1ysyt" path="res://Materials/bricks_material.tres" id="3_k7jhf"]
+[ext_resource type="PackedScene" uid="uid://cylp5llh81ku" path="res://Objects/fireplace.tscn" id="4_oua4m"]
+[ext_resource type="PackedScene" uid="uid://bul5eq425kpxw" path="res://Objects/Crate.tscn" id="5_rfybw"]
+[ext_resource type="PackedScene" uid="uid://cl7kwwwylfjjr" path="res://Modules/door.tscn" id="6_awpnn"]
+[ext_resource type="PackedScene" uid="uid://bqjol7rmd7le4" path="res://Objects/lever.tscn" id="7_rllq5"]
+[ext_resource type="Theme" uid="uid://5wwqsw7oadc1" path="res://Themes/main_theme.tres" id="8_2rvwj"]
+
+[sub_resource type="Animation" id="Animation_q4xeh"]
+resource_name = "Camera rotation"
+length = 40.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 40),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.266669, 0, 0), Vector3(-0.267035, 6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_83hhp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.266669, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m6dfo"]
+_data = {
+"Camera rotation": SubResource("Animation_q4xeh"),
+"RESET": SubResource("Animation_83hhp")
+}
+
+[node name="LevelCompleteScene" type="Node3D"]
+script = ExtResource("1_ayn2i")
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_n8gk2")]
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.964654, 0.26352, 0, -0.26352, 0.964654, 0, 1.64214, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.60222)
+
+[node name="Set" type="Node3D" parent="."]
+
+[node name="Room" type="Node3D" parent="Set"]
+
+[node name="Room" type="Node3D" parent="Set/Room"]
+
+[node name="Floor" type="CSGBox3D" parent="Set/Room/Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(12, 1, 12)
+material = ExtResource("2_y5ddd")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Set/Room/Room"]
+use_collision = true
+
+[node name="Walls" type="CSGBox3D" parent="Set/Room/Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+use_collision = true
+size = Vector3(12, 6, 12)
+material = ExtResource("3_k7jhf")
+
+[node name="Walls sub" type="CSGBox3D" parent="Set/Room/Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+operation = 2
+use_collision = true
+size = Vector3(11, 5.5, 11)
+material = ExtResource("3_k7jhf")
+
+[node name="Door hole" type="CSGCylinder3D" parent="Set/Room/Room/CSGCombiner3D"]
+transform = Transform3D(-1.2763e-07, 2.56313, 1.65809e-15, -2.68993, -1.03216e-07, 1.1244, 1.13566, 4.35768e-08, 2.66326, -5.515, 1.45323, -0.324229)
+operation = 2
+radius = 0.547141
+height = 0.63175
+sides = 9
+material = ExtResource("3_k7jhf")
+
+[node name="Objects" type="Node3D" parent="Set/Room"]
+
+[node name="fireplace" parent="Set/Room/Objects" instance=ExtResource("4_oua4m")]
+aflame = true
+
+[node name="Crate" parent="Set/Room/Objects" instance=ExtResource("5_rfybw")]
+transform = Transform3D(0.992715, 0, 0.120484, 0, 1, 0, -0.120484, 0, 0.992715, 2.94324, 0.561533, -3.91044)
+
+[node name="Crate2" parent="Set/Room/Objects" instance=ExtResource("5_rfybw")]
+transform = Transform3D(0.864205, 0, 0.503141, 0, 1, 0, -0.503141, 0, 0.864205, 3.77731, 0.561533, -2.87135)
+
+[node name="Crate3" parent="Set/Room/Objects" instance=ExtResource("5_rfybw")]
+transform = Transform3D(0.977145, 0, 0.21257, 0, 1, 0, -0.21257, 0, 0.977145, 3.52854, 1.57103, -3.59679)
+
+[node name="Door" parent="Set/Room/Objects" instance=ExtResource("6_awpnn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89194, 1.49832, -0.380709)
+
+[node name="Lever" parent="Set/Room/Objects" instance=ExtResource("7_rllq5")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.90004, 1.53909, -5.58509)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m6dfo")
+}
+autoplay = "Camera rotation"
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="CongratsLabel" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -625.0
+offset_right = 625.0
+offset_bottom = 215.0
+grow_horizontal = 2
+theme = ExtResource("8_2rvwj")
+text = "Level completed in:"
+
+[node name="TimerLabel" type="Label" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -625.0
+offset_top = -307.0
+offset_right = 625.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("8_2rvwj")
+text = "00:00:00"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="UI"]
+offset_left = 154.0
+offset_top = 678.0
+offset_right = 411.0
+offset_bottom = 787.0
+theme = ExtResource("8_2rvwj")
+text = "Restart"
+
+[node name="MenuButton" type="Button" parent="UI"]
+offset_left = 1510.0
+offset_top = 670.0
+offset_right = 1706.0
+offset_bottom = 779.0
+theme = ExtResource("8_2rvwj")
+text = "Menu
+"
+
+[connection signal="interacted" from="Set/Room/Objects/Lever" to="Set/Room/Objects/Door" method="_on_lever_interacted"]
+[connection signal="pressed" from="UI/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="UI/MenuButton" to="." method="_on_menu_button_pressed"]

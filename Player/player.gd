@@ -58,6 +58,7 @@ extends CharacterBody3D
 @onready var camera_3d = $Head/Camera3D
 @onready var stamina_bar: TextureProgressBar = $"UI/Stamina bar"
 @onready var pause_menu = $"UI/Pause Menu"
+@onready var timer_label = $UI/TimerLabel
 
 var _rotation := Vector2.ZERO
 var speed_multiplier := 1.0
@@ -85,6 +86,8 @@ func _process(delta: float) -> void:
 		stamina_bar.visible = false
 	else:
 		stamina_bar.visible = true
+	
+	timer_label.text = GlobalTimer.time_text
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed('pause'):	pause_game()

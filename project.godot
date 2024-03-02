@@ -23,6 +23,7 @@ buses/default_bus_layout="res://Audio/default_bus_layout.tres"
 
 Checkpoints="*res://Global/checkpoints.tscn"
 Abilities="*res://Global/abilities.tscn"
+GlobalTimer="*res://Global/timer.tscn"
 
 [display]
 

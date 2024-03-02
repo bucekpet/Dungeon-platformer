@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0qmupaqkf180"]
+
+[ext_resource type="Script" path="res://Scrpits/timer.gd" id="1_5yco8"]
+
+[node name="Timer" type="Node"]
+script = ExtResource("1_5yco8")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://rniw2avrs0w2"]
+[gd_scene load_steps=19 format=3 uid="uid://rniw2avrs0w2"]
 
 [ext_resource type="Script" path="res://Scrpits/World.gd" id="1_e5b6p"]
 [ext_resource type="PackedScene" uid="uid://y1q5ogxvsjcb" path="res://Environments/world_environment.tscn" id="2_0ptni"]
@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://er3pusc1ysyt" path="res://Materials/bricks_material.tres" id="6_r170b"]
 [ext_resource type="PackedScene" uid="uid://bul5eq425kpxw" path="res://Objects/Crate.tscn" id="7_jj0kv"]
 [ext_resource type="PackedScene" uid="uid://cylp5llh81ku" path="res://Objects/fireplace.tscn" id="8_03fv0"]
+[ext_resource type="Script" path="res://Scrpits/first_lever.gd" id="10_m8qmy"]
 [ext_resource type="PackedScene" uid="uid://cl7kwwwylfjjr" path="res://Modules/door.tscn" id="10_mmg8y"]
 [ext_resource type="PackedScene" uid="uid://bqjol7rmd7le4" path="res://Objects/lever.tscn" id="11_kj8xx"]
 [ext_resource type="PackedScene" uid="uid://cv6ngomq2nqpp" path="res://Objects/torch.tscn" id="12_a01gh"]
@@ -16,15 +17,13 @@
 [ext_resource type="PackedScene" uid="uid://1xnksxqdcund" path="res://Objects/spikes.tscn" id="14_nouua"]
 [ext_resource type="PackedScene" uid="uid://cul3bau05txky" path="res://Objects/firetrap.tscn" id="14_q1ul2"]
 [ext_resource type="PackedScene" uid="uid://87ib6muvh761" path="res://Objects/orb.tscn" id="16_lm6mj"]
+[ext_resource type="Script" path="res://Scrpits/finish_orb.gd" id="18_5kxuo"]
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_e5b6p")
 
 [node name="Player" parent="." instance=ExtResource("2_hxbpa")]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -0.774122, 1, 2.94188)
-sprint_activated = true
-jump_activated = true
-double_jump_activated = true
 recovery_rate = 80.0
 in_air_recovery_rate = 20.0
 jump_cost = 20.0
@@ -86,6 +85,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89194, 1.49832, -0.380709)
 
 [node name="Lever" parent="Room 1/Objects" instance=ExtResource("11_kj8xx")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.90004, 1.53909, -5.58509)
+script = ExtResource("10_m8qmy")
 
 [node name="Hallway 1" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -0.629623, 0, 1, 0, 1, 0, -2.75217e-08, -13.5512, 0, 0)
@@ -903,9 +903,12 @@ transform = Transform3D(0.765899, 0, 0.642961, 0, 1, 0, -0.642961, 0, 0.765899, 
 
 [node name="Orb" parent="Room 6/Objects" instance=ExtResource("16_lm6mj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53189, 0)
+script = ExtResource("18_5kxuo")
 
 [connection signal="interacted" from="Room 1/Objects/Lever" to="Room 1/Objects/Door" method="_on_lever_interacted"]
+[connection signal="interacted" from="Room 1/Objects/Lever" to="Room 1/Objects/Lever" method="_on_interacted"]
 [connection signal="interacted" from="Hallway 1/Objects/Lever" to="Hallway 1/Objects/Door" method="_on_lever_interacted"]
 [connection signal="interacted" from="Room 3/Objects/Lever" to="Room 2/Objects/Door" method="_on_lever_interacted"]
 [connection signal="interacted" from="Room 5/Objects/Lever" to="Room 4/Objects/Door" method="_on_lever_interacted"]
 [connection signal="interacted" from="Hallway 4/Objects/Lever" to="Hallway 4/Objects/Door" method="_on_lever_interacted"]
+[connection signal="interacted" from="Room 6/Objects/Orb" to="Room 6/Objects/Orb" method="_on_interacted"]
