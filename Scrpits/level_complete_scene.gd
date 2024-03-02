@@ -7,7 +7,6 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	Checkpoints.reset_checkpoint()
 	GlobalTimer.save_best()
-	GlobalTimer.load_best()
 	timer_value.text = GlobalTimer.convert_time(GlobalTimer.time)
 	best_time_value.text = GlobalTimer.convert_time(GlobalTimer.best_time)
 

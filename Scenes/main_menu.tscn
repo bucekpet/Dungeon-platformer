@@ -136,7 +136,7 @@ grow_horizontal = 2
 theme = ExtResource("9_5o5wa")
 text = "Dungeon Dash"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu UI"]
+[node name="Main menu" type="VBoxContainer" parent="Menu UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -153,22 +153,38 @@ size_flags_vertical = 4
 theme = ExtResource("9_5o5wa")
 theme_override_constants/separation = 55
 
-[node name="PlayButton" type="Button" parent="Menu UI/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="Menu UI/Main menu"]
 layout_mode = 2
 theme = ExtResource("9_5o5wa")
 text = "Play"
 
-[node name="OptionsButton" type="Button" parent="Menu UI/VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="Menu UI/Main menu"]
 layout_mode = 2
 theme = ExtResource("9_5o5wa")
 text = "Options"
 
-[node name="ExitButton" type="Button" parent="Menu UI/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="Menu UI/Main menu"]
 layout_mode = 2
 theme = ExtResource("9_5o5wa")
 text = "Exit"
 
+[node name="Options Menu" type="VBoxContainer" parent="Menu UI"]
+offset_left = 1333.0
+offset_top = 550.0
+offset_right = 1853.0
+offset_bottom = 987.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("9_5o5wa")
+theme_override_constants/separation = 55
+
+[node name="ResetButton" type="Button" parent="Menu UI/Options Menu"]
+layout_mode = 2
+theme = ExtResource("9_5o5wa")
+text = "Reset best time"
+
 [connection signal="interacted" from="Set/Room/Objects/Lever" to="Set/Room/Objects/Door" method="_on_lever_interacted"]
-[connection signal="pressed" from="Menu UI/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Menu UI/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="Menu UI/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Menu UI/Main menu/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Menu UI/Main menu/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Menu UI/Main menu/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Menu UI/Options Menu/ResetButton" to="." method="_on_reset_button_pressed"]

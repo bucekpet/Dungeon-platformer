@@ -4,6 +4,7 @@ var time := 0.0
 var activated := false
 var time_text: String
 
+var default_best_time := 999999999.0
 var best_time := 999999999.0
 
 const SAVEFILE := "user://dd.save"
@@ -34,6 +35,7 @@ func save_best() -> void:
 	if time < best_time:
 		var file := FileAccess.open(SAVEFILE,FileAccess.WRITE_READ)
 		file.store_float(time)
+		best_time = time
 		# Close file
 		file = null
 
@@ -41,5 +43,11 @@ func load_best() -> void:
 	var file := FileAccess.open(SAVEFILE,FileAccess.READ)
 	if FileAccess.file_exists(SAVEFILE):
 		best_time = file.get_float()
+	# Close file
+	file = null
+
+func reset_best_time() -> void:
+	var file := FileAccess.open(SAVEFILE,FileAccess.WRITE_READ)
+	file.store_float(default_best_time)
 	# Close file
 	file = null

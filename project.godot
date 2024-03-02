@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Dungeon platformer"
+config/name="Dungeon Dash"
 run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.png"
