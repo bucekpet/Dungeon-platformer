@@ -128,27 +128,65 @@ autoplay = "Camera rotation"
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -625.0
-offset_right = 625.0
-offset_bottom = 215.0
+offset_left = -899.0
+offset_top = 68.0
+offset_right = 351.0
+offset_bottom = 283.0
 grow_horizontal = 2
 theme = ExtResource("8_2rvwj")
+theme_override_constants/outline_size = 18
+theme_override_font_sizes/font_size = 128
 text = "Level completed in:"
 
-[node name="TimerLabel" type="Label" parent="UI"]
+[node name="BestTimeLabel" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 283.0
+offset_top = 76.0
+offset_right = 1533.0
+offset_bottom = 291.0
+grow_horizontal = 2
+theme = ExtResource("8_2rvwj")
+theme_override_constants/outline_size = 18
+theme_override_font_sizes/font_size = 128
+text = "Best time:"
+
+[node name="TimerValue" type="Label" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -625.0
-offset_top = -307.0
-offset_right = 625.0
-offset_bottom = -92.0
+offset_left = -1108.0
+offset_top = -327.0
+offset_right = 142.0
+offset_bottom = -112.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme = ExtResource("8_2rvwj")
+theme_override_constants/outline_size = 18
+theme_override_font_sizes/font_size = 128
+text = "00:00:00"
+horizontal_alignment = 1
+
+[node name="BestTimeValue" type="Label" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -323.0
+offset_right = 1134.0
+offset_bottom = -108.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("8_2rvwj")
+theme_override_constants/outline_size = 18
+theme_override_font_sizes/font_size = 128
 text = "00:00:00"
 horizontal_alignment = 1
 

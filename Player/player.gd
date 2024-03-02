@@ -86,8 +86,8 @@ func _process(delta: float) -> void:
 		stamina_bar.visible = false
 	else:
 		stamina_bar.visible = true
-	
-	timer_label.text = GlobalTimer.time_text
+	## Update timer value label
+	timer_label.text = GlobalTimer.convert_time(GlobalTimer.time)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed('pause'):	pause_game()
@@ -206,6 +206,7 @@ func change_stamina(amount: float) -> void:
 	stamina = clampf(stamina + amount, 0.0 , 100.0)
 
 func die() -> void:
+	stamina = 100.0
 	position = Checkpoints.checkpoint
 
 func _on_hurtbox_body_entered(body: Node3D) -> void:
