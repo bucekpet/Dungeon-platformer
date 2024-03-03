@@ -42,7 +42,7 @@ func _on_reset_button_pressed() -> void:
 
 
 func _on_options_button_toggled(toggled_on: bool) -> void:
-	options_menu.visible = true if toggled_on else false
+	options_menu.visible = toggled_on
 
 
 
