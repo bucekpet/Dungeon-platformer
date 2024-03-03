@@ -1,6 +1,5 @@
-[gd_scene load_steps=19 format=3 uid="uid://rniw2avrs0w2"]
+[gd_scene load_steps=18 format=3 uid="uid://rniw2avrs0w2"]
 
-[ext_resource type="Script" path="res://Scrpits/World.gd" id="1_e5b6p"]
 [ext_resource type="PackedScene" uid="uid://y1q5ogxvsjcb" path="res://Environments/world_environment.tscn" id="2_0ptni"]
 [ext_resource type="PackedScene" uid="uid://c4hph52yf8aof" path="res://Player/player.tscn" id="2_hxbpa"]
 [ext_resource type="PackedScene" uid="uid://cew6o18i1dc" path="res://Modules/hallway.tscn" id="5_q0wsy"]
@@ -20,7 +19,6 @@
 [ext_resource type="Script" path="res://Scrpits/finish_orb.gd" id="18_5kxuo"]
 
 [node name="World" type="Node3D"]
-script = ExtResource("1_e5b6p")
 
 [node name="Player" parent="." instance=ExtResource("2_hxbpa")]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -0.774122, 1, 2.94188)
@@ -544,9 +542,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.822106, -5.56479)
 
 [node name="Lava2" parent="Hallway 3/Objects" instance=ExtResource("14_4v0ly")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.72205e-06, -0.822106, 4.42377)
-
-[node name="fireplace" parent="Hallway 3/Objects" instance=ExtResource("8_03fv0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60977, 0, -6.10166)
 
 [node name="Room 4" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.8218, 0, 0)

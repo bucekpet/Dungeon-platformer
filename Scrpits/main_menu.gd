@@ -1,7 +1,9 @@
 extends Node3D
 
+@onready var options_button: Button = $"Menu UI/Main menu/OptionsButton"
 @onready var options_menu: VBoxContainer = $"Menu UI/Options Menu"
 @onready var resolution_option_button: OptionButton = $"Menu UI/Options Menu/ResolutionOptionButton"
+@onready var window_mode_button: OptionButton = $"Menu UI/Options Menu/WindowModeButton"
 
 const Resolutions: Dictionary = {"1920x1080":Vector2(1920,1080),
 								"1366x768":Vector2(1366,768),
@@ -12,11 +14,21 @@ const Resolutions: Dictionary = {"1920x1080":Vector2(1920,1080),
 								"1024x600":Vector2(1024,600),
 								"800x600": Vector2(800,600)}
 
+const WindowModes: Array[String] = [
+	"Fullscreen",
+	"Windowed",
+]
+
 func _ready() -> void:
 	options_menu.visible = false
+	options_button.toggle_mode = true
 	
+	## Add resolutions and modes to the option buttons
 	for res in Resolutions:
 		resolution_option_button.add_item(res)
+	for mode in WindowModes:
+		window_mode_button.add_item(mode)
+	
 
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/world.tscn")
@@ -25,9 +37,23 @@ func _on_exit_button_pressed() -> void:
 	get_tree().quit()
 
 
-func _on_options_button_pressed() -> void:
-	options_menu.visible = true
-
-
 func _on_reset_button_pressed() -> void:
 	GlobalTimer.reset_best_time()
+
+
+func _on_options_button_toggled(toggled_on: bool) -> void:
+	options_menu.visible = true if toggled_on else false
+
+
+
+func _on_resolution_option_button_item_selected(index: int) -> void:
+	var res_size = Resolutions.get(resolution_option_button.get_item_text(index))
+	DisplayServer.window_set_size(res_size)
+
+
+func _on_window_mode_button_item_selected(index: int) -> void:
+	match index:
+		0:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		1:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

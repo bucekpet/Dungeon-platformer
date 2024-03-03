@@ -181,7 +181,15 @@ theme_override_constants/separation = 55
 [node name="ResetButton" type="Button" parent="Menu UI/Options Menu"]
 layout_mode = 2
 theme = ExtResource("9_5o5wa")
+theme_override_colors/font_color = Color(0.803922, 0, 0.00392157, 1)
+theme_override_colors/font_pressed_color = Color(0.803922, 0, 0.00392157, 1)
+theme_override_colors/font_hover_color = Color(0.803922, 0, 0.00392157, 1)
+theme_override_colors/font_focus_color = Color(0.803922, 0, 0.00392157, 1)
 text = "Reset best time"
+
+[node name="WindowModeButton" type="OptionButton" parent="Menu UI/Options Menu"]
+layout_mode = 2
+theme = ExtResource("9_5o5wa")
 
 [node name="ResolutionOptionButton" type="OptionButton" parent="Menu UI/Options Menu"]
 layout_mode = 2
@@ -189,6 +197,8 @@ theme = ExtResource("9_5o5wa")
 
 [connection signal="interacted" from="Set/Room/Objects/Lever" to="Set/Room/Objects/Door" method="_on_lever_interacted"]
 [connection signal="pressed" from="Menu UI/Main menu/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Menu UI/Main menu/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="toggled" from="Menu UI/Main menu/OptionsButton" to="." method="_on_options_button_toggled"]
 [connection signal="pressed" from="Menu UI/Main menu/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Menu UI/Options Menu/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="item_selected" from="Menu UI/Options Menu/WindowModeButton" to="." method="_on_window_mode_button_item_selected"]
+[connection signal="item_selected" from="Menu UI/Options Menu/ResolutionOptionButton" to="." method="_on_resolution_option_button_item_selected"]

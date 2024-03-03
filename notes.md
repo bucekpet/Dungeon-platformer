@@ -1,3 +1,4 @@
 # TODO
-- Options
-- Persistent best time
+[x] Options
+[x] Persistent best time
+[ ] on ready set window size according to monitor res
