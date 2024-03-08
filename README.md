@@ -1,3 +1,5 @@
-## Dungeon Dash
+# Dungeon Dash
 
-<iframe frameborder="0" src="https://itch.io/embed/2560788" width="552" height="167"><a href="https://vectorlabs.itch.io/dungeon-dash">Dungeon Dash by Vector Labs</a></iframe>
+This is a source code repo of 3D platformer game made in Godot Engine
+
+For built executable follow <a href="https://vectorlabs.itch.io/dungeon-dash">this link to itch.io page</a>
